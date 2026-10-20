@@ -1,0 +1,1035 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js')</script>
+<title>Cerenome, Inc. (Nasdaq Capital Market: CNSY) | Investor Relations Concept</title>
+<meta name="description" content="An independent design concept for the Cerenome (Nasdaq Capital Market: CNSY) investor relations page. Not affiliated with Cerenome, Inc.; the official IR site is https://ir.cerenome.com/.">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Red+Hat+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+/* mc:tokens */
+:root{
+  /* palette.mjs --brand "accent=#ff492c,deep=#1c1246" --strategy drenched  (drenched)
+     accent   #ff492c oklch(0.666 0.222 31.8)
+     deep     #1c1246 oklch(0.233 0.092 285.6)
+     measured: white on --accent-ink 7.78:1, --accent-ink on --paper 7.56:1, --text-mid on --tint 5.66:1 */
+  --H: 31.8; --Hn: 285.6;
+  --accent:        oklch(0.666 0.222 31.8); /* bright: fills on light stock; text only on dark where --check proves >= 4.5; real */
+  --accent-lo:     oklch(0.666 0.222 31.8 / 0.14);
+  --accent-lt:     oklch(0.86 0.076 31.8); /* bright accent ON dark surfaces */
+  --accent-ink:    oklch(0.46 0.175 31.8); /* TEXT, links, primary-button background */
+  --accent-ink-d:  oklch(0.40 0.152 31.8); /* hover */
+  --ink:           oklch(0.26 0.030 285.6); /* headings */
+  --deep:          oklch(0.233 0.092 285.6); /* permanently dark band; real */
+  --paper:         oklch(0.99 0.004 285.6);
+  --card:          oklch(0.996 0.001 285.6);
+  --tint:          oklch(0.965 0.017 31.8); /* .sec-tint band, concept note, card interiors */
+  --tint-2:        oklch(0.91 0.035 31.8); /* borders, ghost outlines, the darker of two light bands */
+  --text:          oklch(0.31 0.030 285.6);
+  --text-mid:      oklch(0.49 0.030 285.6);
+  --line:          oklch(0.30 0.010 285.6 / 0.13);
+  --line-d:        oklch(0.98 0.009 31.8 / 0.14);
+  /* surface-slot defaults (foundation surface block); retune in surface.css */
+  --sheet-edge:    oklch(0.40 0.152 31.8 / 0.26);
+  --blind:         oklch(1.00 0.000 0 / 0.5);
+  --blind-k:       oklch(1.00 0.000 0 / 0.85);
+  --sheet-neg:     oklch(0.98 0.009 31.8 / 0.05);
+  /* hand additions, same hues: the gravest band, and the two artwork grounds sampled from the company's own images so they sit flush */
+  --deep-2:        oklch(0.17 0.070 285.6);  /* gravest band and footer */
+  --coral-art:     #fe492c;                  /* flat ground of why-now-full.jpg (sampled, 3 corners identical); the brand coral to within 1/255 */
+  --deep-art:      #181540;                  /* flat ground of footer-bg.jpg (sampled, 3 corners identical) */
+  --serif:         'Bricolage Grotesque', system-ui, sans-serif;
+  --sans:          'Hanken Grotesk', system-ui, sans-serif;
+  --mono:          'Red Hat Mono', ui-monospace, monospace;
+  --wrap: 1140px; --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+/* mc:substrate 9576b9be1505 */
+/* mediaconsole substrate: inlined by scripts/scaffold.mjs, identical on every page. Never edit or retype it;
+   override in page/layer.css or page/surface.css (both load after it). Band: all. Hue-parametric: colours are
+   tokens or oklch(... var(--Hn)). Integrity: opaque nav, content visible without JS, print and forced-colors safe. */
+:where(:root){--wrap:1140px;--ease:cubic-bezier(0.22, 1, 0.36, 1)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;scroll-padding-top:88px}
+body{font-family:var(--sans);color:var(--text);background:var(--paper);font-size:16px;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none} img,svg{display:block;max-width:100%} button{font:inherit;cursor:pointer}
+::selection{background:var(--accent-lt);color:var(--deep)}
+:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px;border-radius:2px}
+.sec-dark :focus-visible,.snapshot :focus-visible,footer :focus-visible{outline-color:var(--accent-lt)}
+.wrap{width:min(var(--wrap),100% - 44px);margin-inline:auto}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip-link{position:absolute;left:12px;top:-60px;z-index:200;background:var(--deep);color:#fff;padding:10px 16px;border-radius:6px;font-size:.85rem;transition:top .2s var(--ease)}
+.skip-link:focus{top:12px}
+.concept-note{background:var(--tint);color:var(--accent-ink-d);font-size:.78rem;text-align:center;padding:8px 16px;position:relative;z-index:101}
+.concept-note a{color:inherit;font-weight:600;text-decoration:underline}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.08;letter-spacing:-.01em;color:var(--ink)}
+h1{font-size:clamp(2.35rem,5.3vw,4rem)} h2{font-size:clamp(1.7rem,3.4vw,2.5rem)} h3{font-size:clamp(1.15rem,2vw,1.4rem)}
+p{max-width:68ch}
+.eyebrow{font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);display:inline-flex;align-items:center;gap:9px;margin-bottom:16px}
+.eyebrow::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none}
+.lead{font-size:clamp(1.08rem,1.7vw,1.3rem);line-height:1.55;color:var(--text-mid)}
+/* four house buttons: primary + ghost on light stock, primary-light + ghost-light on dark stock.
+   Text on dark uses --accent-lt, never --accent (D16: --accent may be a mid-L real brand colour; it is a fill). */
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:11px 22px;border-radius:8px;font-family:var(--sans);font-size:.82rem;font-weight:600;letter-spacing:.02em;border:1.5px solid transparent;background:transparent;transition:background .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease),transform .2s var(--ease)}
+.btn:hover{transform:translateY(-1px)} .btn .arw{font-family:var(--mono);transition:transform .2s var(--ease)} .btn:hover .arw{transform:translateX(3px)}
+.btn-primary{background:var(--accent-ink);color:#fff} .btn-primary:hover{background:var(--accent-ink-d)}
+.btn-ghost{border-color:var(--tint-2);color:var(--accent-ink)} .btn-ghost:hover{background:var(--tint);border-color:var(--accent-ink)}
+.btn-primary-light{background:var(--accent-lt);color:var(--deep)} .btn-primary-light:hover{background:var(--tint)}
+.btn-ghost-light{border-color:oklch(0.98 0.01 var(--Hn)/.4);color:#fff} .btn-ghost-light:hover{background:oklch(0.98 0.01 var(--Hn)/.1)}
+/* nav: opaque by rule (no translucency, no blur); markup is emitted by scaffold.mjs from page.json */
+.site-nav{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:1px solid var(--line);transition:box-shadow .3s var(--ease)}
+.site-nav.scrolled{box-shadow:0 6px 24px oklch(0.3 0.02 var(--Hn)/.07)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
+.nav-brand{display:flex;align-items:center;gap:12px;min-height:44px;min-width:0}
+.nav-logo{display:flex;align-items:center;flex:none}
+.nav-logo img{height:26px;width:auto}
+.nav-name{font-family:var(--serif);font-size:1.2rem;line-height:1.1;color:var(--ink)}
+.nav-tick{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;color:var(--text-mid);border:1px solid var(--line);border-radius:5px;padding:4px 8px}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a:not(.btn){font-size:.86rem;font-weight:500;color:var(--text-mid);transition:color .2s var(--ease)}
+.nav-links a:not(.btn):hover{color:var(--accent-ink)}
+.nav-links a.active{color:var(--ink);text-decoration:underline;text-underline-offset:7px;text-decoration-color:var(--accent);text-decoration-thickness:2px}
+.nav-burger{display:none;flex-direction:column;gap:5px;width:44px;height:44px;align-items:center;justify-content:center;background:none;border:none}
+.nav-burger span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:transform .25s var(--ease),opacity .2s}
+.nav-burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+/* bands: FLAT FILLS, the floor only; page/surface.css must override them (verify FAILs flat pages) */
+main{display:block;overflow-x:clip}   /* a translated reveal or wide motif can never widen the page */
+main>section{padding:clamp(56px,8vw,104px) 0}
+.sec-white{background:var(--paper)} .sec-tint{background:var(--tint)}
+.sec-dark{background:var(--deep);color:oklch(0.9 0.008 var(--Hn))}
+.sec-dark h1,.sec-dark h2,.sec-dark h3{color:#fff} .sec-dark .eyebrow{color:var(--accent-lt)} .sec-dark .eyebrow::before{background:var(--accent)}
+.sec-dark .lead{color:oklch(0.86 0.01 var(--Hn))}
+.sec-head{max-width:660px;margin-bottom:clamp(36px,5vw,56px)} .sec-head p{margin-top:14px}
+/* data sits on its own plate: table.fin cells are transparent, never paint a band behind figures */
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table.fin{width:100%;border-collapse:collapse;min-width:540px;font-size:.92rem}
+table.fin caption{text-align:left;font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--text-mid);padding:14px 20px;border-bottom:1px solid var(--line);background:var(--card)}
+table.fin th,table.fin td{text-align:left;padding:14px 20px;border-bottom:1px solid var(--line)}
+table.fin tbody tr:last-child td{border-bottom:none}
+table.fin td.num{font-family:var(--mono);text-align:right;color:var(--ink);font-weight:500}
+table.fin thead th{font-weight:700;color:var(--ink);background:var(--card)}
+footer{background:var(--deep);color:oklch(0.76 0.008 var(--Hn));padding:56px 0 28px}
+.fls{padding:32px 0 0;font-size:.78rem;line-height:1.7;color:oklch(0.68 0.008 var(--Hn));max-width:98ch} .fls b{color:oklch(0.85 0.01 var(--Hn))}
+.fls a{color:inherit;text-decoration:underline} .fls+.fls{padding-top:14px}
+.market-note{padding-top:18px;margin-top:18px;border-top:1px solid var(--line-d);font-size:.72rem;line-height:1.7;color:oklch(0.68 0.008 var(--Hn))}
+/* reveal: hidden only once motion.js has set html.js, so no-JS and JS failure show everything.
+   Direction variants set --reveal-from (components/motion-extra.css); stagger with style="--d:.08s". */
+.reveal{transition:opacity .65s var(--ease),transform .65s var(--ease);transition-delay:var(--d,0s)}
+.js .reveal:not(.in){opacity:0;transform:var(--reveal-from,translateY(20px))}
+/* motif pause: motion.js toggles .paused on #hero-motif off-screen, in a hidden tab, or via [data-motif-toggle] */
+.paused,.paused::before,.paused::after,.paused *,.paused *::before,.paused *::after{animation-play-state:paused!important}
+@media (max-width:900px){
+  .nav-burger{display:flex}
+  .nav-links{position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:2px;background:var(--paper);border-bottom:1px solid var(--line);padding:12px 22px 20px;opacity:0;transform:translateY(-10px);visibility:hidden;pointer-events:none;transition:opacity .28s var(--ease),transform .28s var(--ease),visibility .28s;box-shadow:0 16px 30px oklch(0.3 0.02 var(--Hn)/.08)}
+  .nav-links.open{opacity:1;transform:none;visibility:visible;pointer-events:auto}
+  .nav-links li{width:100%} .nav-links a:not(.btn){display:block;padding:12px 0} .nav-links .btn{margin-top:10px;display:inline-flex}
+}
+@media (max-width:768px){ .footer-links a,.contact-col a{min-height:44px;display:flex;align-items:center} }   /* 44px tap targets; (0,1,1) so layer.css can restyle */
+@media (prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important}
+  .reveal{transition:none} .js .reveal:not(.in){opacity:1;transform:none}
+  .btn:hover{transform:none} [class*="motif"]{animation:none!important} [data-motif-toggle]{display:none}
+}
+/* print (D12): decoration off, every reveal shown, dark bands re-inked dark-on-white (backgrounds may not print).
+   A custom dark band must carry .sec-dark so this, its focus ring and its heading colour all apply. */
+@media print{
+  *,*::before,*::after{background-image:none!important;box-shadow:none!important;text-shadow:none!important;animation:none!important;transition:none!important}
+  .site-nav{position:static} .nav-burger,.skip-link,[data-motif-toggle]{display:none!important}
+  .js .reveal:not(.in){opacity:1!important;transform:none!important}
+  .sec-dark,.sec-dark *,.hero,.hero *,.snapshot,.snapshot *,footer,footer *{background-color:transparent!important;color:#111!important;border-color:#bbb!important}
+  .sec-white,.sec-tint,.sec-dark,footer{background-color:#fff!important;border-top:1px solid #bbb}
+  .btn{background:transparent!important;color:#111!important;border-color:#111!important}
+  .table-scroll{overflow:visible;background:#fff!important}
+  main>section{padding:28px 0}
+}
+/* forced colors: the UA repaints every band to Canvas, so bands get a system seam instead */
+@media (forced-colors:active){
+  .sec-white,.sec-tint,.sec-dark,footer{background-image:none;border-top:1px solid CanvasText}
+  .btn{border-color:ButtonText}
+  .nav-burger span{forced-color-adjust:none;background:CanvasText}
+  .table-scroll{border-color:CanvasText}
+}
+/* mc:nav (computed: the listing chip stops fitting beside logo + burger) */
+@media (max-width:488px){.nav-tick{display:none}}
+/* mc:component stats */
+/* stats: E1 stats band, the snapshot/stats coverage slot, 3 to 5 stats. Band: dark (section.snapshot.sec-dark).
+   Integrity: every .stat carries a .stat-src provenance line or it is not printed; hairlines are the 1px grid gap. */
+.stats-band{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:1px;background:var(--line-d);border:1px solid var(--line-d);border-radius:12px;overflow:hidden}
+.stat{background:var(--deep);padding:24px 20px;display:flex;flex-direction:column;gap:6px}
+.stat-num{font-family:var(--mono);font-size:clamp(1.5rem,3.2vw,2.1rem);font-weight:600;line-height:1;letter-spacing:-.02em;color:#fff;font-variant-numeric:tabular-nums}
+.stat-num em{font-style:normal;color:var(--accent-lt)}
+.stat-label{font-size:.8rem;color:oklch(0.78 0.008 var(--Hn))}
+.stat-src{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:oklch(0.72 0.008 var(--Hn))}
+/* mc:layer */
+/* Cerenome: visible layer. magazine-grid (a 12-column modular page), Bricolage Grotesque / Hanken Grotesk / Red Hat Mono, a drenched coral hero
+   carrying the company's own artwork flush on its own ground, deep indigo bands, a warm tint. Coral is a fill and a mark; text is indigo or accent-ink. */
+.nw{white-space:nowrap}
+b{font-weight:700;color:var(--ink)}
+.sec-dark b{color:#fff}
+h1,h2,h3{font-weight:700;letter-spacing:-.015em}
+h2{font-size:clamp(1.8rem,3.2vw,2.6rem);line-height:1.05}
+h3{font-size:clamp(1.12rem,1.6vw,1.3rem);line-height:1.2}
+p{max-width:68ch}
+.eyebrow::before{width:18px;height:2px;border-radius:0;background:var(--accent)}
+.sec-dark .eyebrow{color:var(--accent-lt)}
+.sec-dark .eyebrow::before{background:var(--accent)}
+.sec-head{max-width:760px}
+.sec-head h2{margin-bottom:6px}
+.sec-dark .sec-head h2{font-size:clamp(2.1rem,4.4vw,3.4rem);line-height:1}
+
+/* ---- tags and source links (the data labels) ---- */
+.tg{display:inline-block;font-family:var(--mono);font-size:.56rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;line-height:1.5;padding:2px 7px;border-radius:2px;vertical-align:.12em;margin-left:3px;white-space:nowrap}
+.tg-f{background:var(--accent-ink);color:#fff}
+.tg-cs{background:transparent;color:var(--accent-ink);box-shadow:inset 0 0 0 1px currentColor}
+.tg-cm{background:var(--deep);color:#fff}
+.tg-site{background:var(--tint-2);color:var(--ink)}
+.src{font-family:var(--mono);font-size:.62rem;letter-spacing:.05em;text-transform:uppercase;color:var(--accent-ink);text-decoration:underline;text-decoration-color:var(--tint-2);text-underline-offset:3px;margin-left:6px;white-space:nowrap;transition:text-decoration-color .2s var(--ease)}
+.src:hover{text-decoration-color:currentColor}
+.inl{color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--tint-2)}
+.inl:hover{text-decoration-color:currentColor}
+.sec-dark .tg-f{background:var(--accent-lt);color:var(--deep-2)}
+.sec-dark .tg-cs{color:var(--accent-lt)}
+.sec-dark .tg-cm{background:#fff;color:var(--deep)}
+.sec-dark .tg-site{background:oklch(0.98 0.02 285 / .16);color:#fff}
+.sec-dark .src,.sec-dark .inl{color:var(--accent-lt);text-decoration-color:var(--line-d)}
+.sec-dark .src:hover,.sec-dark .inl:hover{text-decoration-color:currentColor}
+/* on the coral hero the light-stock tag colours would fall below contrast: indigo ink instead */
+.sec-coral .tg-f{background:var(--deep);color:#fff}
+.sec-coral .tg-cs{color:var(--deep)}
+.sec-coral .tg-site{background:var(--deep);color:#fff}
+.sec-coral .src,.sec-coral .inl{color:var(--deep);text-decoration-color:oklch(0.233 0.092 285.6 / .5)}
+.sec-coral :focus-visible{outline-color:var(--deep)}
+
+/* ============================ HEADER: an indigo bar, white mark ============================ */
+.concept-note{background:var(--tint);color:var(--accent-ink-d)}
+.site-nav{background:var(--deep);color:#fff;border-bottom:1px solid var(--line-d)}
+.site-nav.scrolled{box-shadow:0 6px 24px oklch(0.17 0.07 285.6 / .3)}
+.nav-tick{font-family:var(--mono);font-size:.6rem;letter-spacing:.07em;text-transform:uppercase;color:oklch(0.92 0.02 285);border:1px solid var(--line-d);padding:4px 8px;border-radius:2px;white-space:nowrap}
+.nav-links a:not(.btn){color:oklch(0.9 0.02 285)}
+.nav-links a:not(.btn):hover,.nav-links a.active{color:#fff}
+.nav-burger span{background:#fff}
+.site-nav :focus-visible{outline-color:var(--accent-lt)}
+.site-nav .btn-primary{background:var(--accent);color:var(--deep)}
+.site-nav .btn-primary:hover{background:var(--accent-lt);color:var(--deep)}
+@media (max-width:899px){.nav-links{background:var(--deep)}}
+
+/* ============================ HERO: coral ground, the name set at wall scale, the artwork flush ============================ */
+.sec-coral{color:var(--deep)}
+.hero{padding:clamp(28px,4vw,52px) 0 clamp(64px,7vw,96px)}
+.hero-wrap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(16px,2.4vw,32px);align-items:start}
+.hero .eyebrow{grid-column:1/-1;color:var(--deep);margin-bottom:clamp(6px,1.4vw,16px)}
+.hero .eyebrow::before{background:var(--deep)}
+.hero h1{grid-column:1/-1;display:flex;flex-direction:column;gap:12px;margin-bottom:clamp(20px,3vw,36px);color:var(--deep)}
+.h1-name{display:block;font-family:var(--serif);font-weight:800;font-size:clamp(3.4rem,19vw,6.8rem);line-height:.84;letter-spacing:-.045em;color:var(--deep)}
+.h1-sub{display:block;max-width:30ch;font-size:clamp(1.15rem,2.2vw,1.55rem);font-weight:600;line-height:1.22;letter-spacing:-.005em;color:var(--deep)}
+@media (min-width:1000px){
+  .hero h1{flex-direction:row;align-items:flex-end;justify-content:space-between;gap:clamp(24px,4vw,56px)}
+  .h1-name{font-size:clamp(6.6rem,11.6vw,9.2rem)}
+  .h1-sub{flex:0 1 34%;padding-bottom:.5em}
+}
+.hero-art{grid-column:1/-1;grid-row:3;position:relative;margin:0 0 clamp(20px,3vw,32px)}
+.hero-art img{display:block;width:100%;height:auto;max-height:420px;object-fit:cover;object-position:left center}
+.hero-art figcaption{margin-top:10px;font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--deep)}
+.hero-copy{grid-column:1/-1;grid-row:4}
+.hero .lead{max-width:50ch;color:var(--deep);font-size:clamp(1.02rem,1.3vw,1.14rem);line-height:1.6}
+.hero .lead+.lead{margin-top:12px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(18px,2.4vw,26px)}
+.hero .btn-primary{background:var(--deep);color:#fff}
+.hero .btn-primary:hover{background:var(--ink)}
+.hero .btn-ghost{border-color:var(--deep);color:var(--deep)}
+.hero .btn-ghost:hover{background:oklch(0.233 0.092 285.6 / .1);border-color:var(--deep)}
+.hero-pause[aria-pressed="true"]{background:oklch(0.233 0.092 285.6 / .12)}
+@media (min-width:1000px){
+  .hero-art{grid-column:1/8;grid-row:3;margin:0}
+  .hero-art img{max-height:none}
+  .hero-copy{grid-column:8/-1;grid-row:3;align-self:center}
+}
+/* the one motif: a scan line crossing the artwork, the slice of a CNS scan; it rests mid-image (its base state) and is pausable */
+.motif-scan{position:absolute;left:0;right:0;top:50%;height:0;border-top:1.5px solid var(--deep);opacity:.6;pointer-events:none;animation:scan 10s cubic-bezier(.45,0,.25,1) infinite alternate}
+.motif-scan::before,.motif-scan::after{content:"";position:absolute;top:-6px;width:1.5px;height:10px;background:var(--deep)}
+.motif-scan::before{left:0}.motif-scan::after{right:0}
+@keyframes scan{from{top:7%}to{top:93%}}
+.paused .motif-scan{animation-play-state:paused}
+
+/* ============================ READ FIRST ============================ */
+.readfirst{padding:clamp(44px,5vw,72px) 0}
+.notice{background:var(--card);border:1px solid var(--tint-2);border-top:4px solid var(--accent);border-radius:0;padding:clamp(22px,3vw,36px)}
+.notice h2{font-family:var(--mono);font-size:.74rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:22px;line-height:1.3}
+.notice ol{list-style:none;counter-reset:rf;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px clamp(28px,4vw,56px)}
+.notice li{counter-increment:rf;position:relative;padding-top:50px;font-size:.98rem;line-height:1.62}
+.notice li::before{content:"0" counter(rf);position:absolute;left:0;top:0;font-family:var(--serif);font-weight:800;font-size:2.6rem;line-height:1;letter-spacing:-.03em;color:var(--accent-ink);font-feature-settings:'lnum' 1}
+.notice .cutoff{margin-top:26px;padding-top:14px;border-top:1px solid var(--line);font-size:.84rem;line-height:1.6;color:var(--text-mid);max-width:none}
+
+/* ============================ KEY FIGURES: modular cells of different weight ============================ */
+.snapshot{padding:clamp(40px,5vw,64px) 0}
+.snapshot .stats-band{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:12px;background:none;border:0;border-radius:0;overflow:visible}
+.snapshot .stat{display:flex;flex-direction:column;justify-content:space-between;gap:12px;background:var(--card);border:1px solid var(--tint-2);border-radius:0;padding:22px 22px 18px}
+.snapshot .stat:nth-child(1),.snapshot .stat:nth-child(2){grid-column:span 6;min-height:220px}
+.snapshot .stat:nth-child(3){grid-column:span 7}
+.snapshot .stat:nth-child(4){grid-column:span 5}
+.snapshot .stat:nth-child(2){background:var(--tint-2);border-color:var(--tint-2)}
+.snapshot .stat-num{font-family:var(--serif);font-weight:800;font-size:clamp(2.4rem,4.4vw,3.6rem);line-height:1;letter-spacing:-.03em;color:var(--accent-ink);font-feature-settings:'lnum' 1}
+.snapshot .stat:nth-child(1) .stat-num,.snapshot .stat:nth-child(2) .stat-num{font-size:clamp(3.4rem,8vw,6.6rem);line-height:.9}
+.snapshot .stat-label{font-size:.92rem;line-height:1.45;color:var(--text);max-width:34ch}
+.snapshot .stat-src{font-family:var(--sans);font-size:inherit;letter-spacing:0;text-transform:none;color:var(--text-mid)}
+
+/* ============================ PLATFORM (indigo band) ============================ */
+.plat-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(28px,5vw,72px);align-items:center}
+.platform .sec-head p{color:oklch(0.9 0.015 285)}
+.caps{list-style:none;padding:0;display:grid;gap:0;border-top:1px solid var(--line-d)}
+.cap{padding:20px 0 22px;border-bottom:1px solid var(--line-d)}
+.cap h3{display:flex;align-items:baseline;gap:14px;margin-bottom:8px;font-family:var(--serif);font-size:clamp(1.3rem,2vw,1.65rem);color:#fff}
+.cap-n{font-family:var(--mono);font-size:.74rem;font-weight:500;letter-spacing:.1em;color:var(--accent-lt)}
+.cap p{max-width:none;font-size:.96rem;line-height:1.65;color:oklch(0.92 0.015 285)}
+.rings-fig{margin:0}
+.rings-svg{display:block;width:100%;max-width:470px;height:auto;margin-inline:auto}
+.rg-a{stroke:var(--accent)}
+.rg-b{stroke:var(--accent-lt)}
+.rg-c{stroke:oklch(0.98 0.009 31.8)}
+.rg-t1{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.14em;fill:#fff}
+.rg-t2{font-family:var(--mono);font-size:11px;letter-spacing:.06em;fill:oklch(0.86 0.03 285.6)}
+.rings-fig figcaption{margin-top:14px;font-size:.84rem;line-height:1.6;color:oklch(0.86 0.02 285);max-width:60ch;margin-inline:auto}
+
+/* ============================ PIPELINE: a matrix ============================ */
+.matrix{display:grid;gap:0;border-top:3px solid var(--ink)}
+.mrow{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr) minmax(0,5fr);gap:clamp(16px,3vw,40px);padding:22px 0;border-bottom:1px solid var(--line);align-items:start}
+.mrow-h{padding:12px 0;font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mid)}
+.mname{display:flex;flex-direction:column;gap:3px}
+.mname b{font-family:var(--serif);font-size:clamp(1.2rem,1.8vw,1.5rem);line-height:1.15;color:var(--ink)}
+.mname span{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-mid)}
+.mstage{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.chip{display:inline-block;font-family:var(--mono);font-size:.66rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;line-height:1.3;padding:7px 11px;border-radius:2px}
+.chip-p2{background:var(--accent-ink);color:#fff}
+.chip-p1{background:var(--card);color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--accent-ink)}
+.chip-c{background:var(--deep);color:#fff}
+.chip-s,.chip-n{background:transparent;color:var(--text-mid);box-shadow:inset 0 0 0 1px var(--tint-2)}
+.mnote p{max-width:none;font-size:.95rem;line-height:1.65}
+
+/* ============================ FINANCIALS ============================ */
+.fins .table-scroll+.fin-note,.fins .fin-note+.table-scroll{margin-top:26px}
+.fins .fin-note{max-width:900px;margin-top:22px;font-size:.95rem;line-height:1.7}
+.fins .fin-note b{color:var(--accent-ink)}
+table.fin{min-width:640px;font-size:.9rem}
+table.fin caption{color:var(--text-mid)}
+table.fin td.num{font-family:var(--mono);font-size:.8rem;white-space:nowrap}
+table.fin tbody tr:last-child th{border-bottom:none}
+table.fin thead th.num{font-size:.8rem;line-height:1.35;text-align:right}
+table.fin tr.focal td,table.fin tr.focal th{background:var(--tint)}
+table.fin tr.focal td.num{font-weight:600}
+table.fin thead th{border-bottom:2px solid var(--ink)}
+.fins table.fin th[scope="row"]{font-weight:600;color:var(--ink);font-size:.9rem}
+table.fin.stack td[data-label]:not(.num):not(.srcc){font-size:.9rem}
+
+/* ============================ FUNDING (the gravest band) ============================ */
+.funding .sec-head p{color:oklch(0.9 0.015 285)}
+.mgmt{margin:0 0 clamp(30px,4vw,48px);padding:clamp(18px,2.4vw,28px) 0 0;border:0;border-top:3px solid var(--accent-lt);border-radius:0;background:none}
+.mgmt h3{font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-lt);margin-bottom:14px}
+.mgmt p{font-family:var(--serif);font-size:clamp(1.3rem,2.1vw,1.75rem);line-height:1.28;letter-spacing:-.01em;color:#fff;max-width:none;font-weight:500}
+.mgmt p+p{font-size:clamp(1.05rem,1.5vw,1.2rem);line-height:1.5;letter-spacing:0;margin-top:14px;color:oklch(0.92 0.015 285)}
+.mgmt .mgmt-src{font-family:var(--sans);font-size:.9rem;margin-top:16px;color:oklch(0.9 0.015 285)}
+.ledger-fig{margin:0 0 clamp(30px,4vw,48px)}
+.ledger-svg{width:100%;height:auto;max-width:none}
+.lg-grid{stroke:var(--line-d);stroke-width:1}
+.lg-t{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;fill:oklch(0.88 0.02 285)}
+.lg-t-r{text-anchor:end}
+.lg-t-s{fill:oklch(0.74 0.03 285)}
+.lg-t-v{fill:#fff;font-weight:500;font-size:13px}
+.lg-t-w{fill:var(--accent-lt);font-weight:500}
+.lg-bar{fill:var(--accent-lt)}
+.lg-bar-cash{fill:var(--accent)}
+.lg-bar-in{fill:oklch(0.86 0.076 31.8 / .55)}
+.lg-bar-ceil-b{fill:none;stroke:var(--accent-lt);stroke-width:1.2;stroke-dasharray:5 5}
+.lg-hatch{stroke:var(--accent);stroke-width:1.4;opacity:.6}
+.lg-break{stroke:var(--deep-2);stroke-width:6;fill:none}
+.lg-m{display:none}
+.ledger-fig figcaption{margin-top:14px;font-size:.84rem;line-height:1.6;color:oklch(0.86 0.02 285);max-width:78ch}
+.sec-dark .table-scroll{border-color:var(--line-d);border-radius:0}
+.sec-dark table.fin th,.sec-dark table.fin td{color:var(--text)}
+.sec-dark table.fin thead th,.sec-dark table.fin th[scope="row"]{color:var(--ink)}
+.sec-dark table.fin caption{color:var(--text-mid)}
+.sec-dark .table-scroll .tg-f{background:var(--accent-ink);color:#fff}
+.sec-dark .table-scroll .tg-cs{color:var(--accent-ink)}
+.sec-dark .table-scroll .tg-cm{background:var(--deep);color:#fff}
+.sec-dark .table-scroll .tg-site{background:var(--tint-2);color:var(--ink)}
+.sec-dark .table-scroll .src{color:var(--accent-ink);text-decoration-color:var(--tint-2)}
+table.raises{min-width:820px}
+table.raises th[scope="row"]{white-space:nowrap;font-family:var(--mono);font-size:.74rem;font-weight:500;letter-spacing:.03em}
+.fund-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(28px,4vw,56px);margin-top:clamp(30px,4vw,52px);padding-top:clamp(26px,3vw,40px);border-top:1px solid var(--line-d)}
+.fund-grid h3{font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-lt);margin-bottom:14px;line-height:1.3}
+.fund-grid p{color:oklch(0.92 0.015 285);line-height:1.65;font-size:.96rem;max-width:none}
+.fund-grid p+p{margin-top:12px}
+.shares{list-style:none;padding:0;margin-bottom:16px;border-top:1px solid var(--line-d)}
+.shares li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:9px 0;border-bottom:1px solid var(--line-d);font-size:.9rem;color:oklch(0.9 0.015 285)}
+.shares b{font-family:var(--mono);font-size:.84rem;font-weight:500;color:#fff;white-space:nowrap}
+
+/* ============================ FILINGS, CONTACT ============================ */
+.filtable td.d,.filtable td.f{font-family:var(--mono);font-size:.76rem;white-space:nowrap;color:var(--text)}
+.filtable td.srcc{white-space:nowrap}
+.filtable td.srcc .src:first-child{margin-left:0}
+.contact{padding-bottom:clamp(64px,8vw,112px)}
+.contact-wrap{display:grid;grid-template-columns:minmax(0,1fr);max-width:620px;margin-left:max(22px,calc((100% - var(--wrap))/2))}
+.contact .sec-head p{color:oklch(0.9 0.015 285)}
+.contact-list{display:grid;gap:0;border-top:1px solid var(--line-d)}
+.contact-col{padding:20px 0 24px;border-bottom:1px solid var(--line-d)}
+.contact-col h3{margin-bottom:8px;font-family:var(--serif);font-size:clamp(1.3rem,2vw,1.65rem);color:#fff}
+.contact-col p{font-size:.95rem;line-height:1.65;margin-bottom:16px;color:oklch(0.92 0.015 285)}
+
+/* ============================ FOOTER ============================ */
+footer{background:var(--deep-2)}
+.foot-brand{display:inline-block;margin-bottom:22px;line-height:0}
+.foot-brand img{height:30px;width:auto}
+.footer-links{display:flex;flex-wrap:wrap;gap:8px 28px;list-style:none;padding:0;margin-bottom:22px}
+.footer-links a{font-size:.9rem;color:oklch(0.9 0.015 285);text-decoration:underline;text-decoration-color:var(--line-d);text-underline-offset:4px}
+.footer-links a:hover{text-decoration-color:currentColor}
+.method{font-size:.78rem;line-height:1.7;color:oklch(0.78 0.012 285);max-width:98ch}
+footer .fls,footer .market-note{color:oklch(0.74 0.012 285)}
+footer .fls b{color:oklch(0.92 0.012 285)}
+
+/* ============================ RESPONSIVE ============================ */
+@media (max-width:999px){
+  .plat-grid,.fund-grid{grid-template-columns:minmax(0,1fr)}
+  .notice ol{grid-template-columns:minmax(0,1fr)}
+  .mrow{grid-template-columns:minmax(0,1fr);gap:10px}
+  .mrow-h{display:none}
+  .mstage{flex-direction:row;flex-wrap:wrap}
+}
+@media (max-width:760px){
+  .snapshot .stats-band{grid-template-columns:minmax(0,1fr)}
+  .snapshot .stat:nth-child(n){grid-column:1/-1;min-height:0}
+  .hero-art img{max-height:340px}
+  /* the wide drawings give way to vertical lists drawn from the same numbers */
+  .ledger-svg,.rg-labels{display:none}
+  .rings-svg{max-width:260px}
+  .lg-m{display:grid;gap:0;list-style:none;padding:0;border-top:1px solid var(--line-d)}
+  .lg-m li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;padding:14px 0;border-bottom:1px solid var(--line-d)}
+  .lg-m-l{font-size:.92rem;line-height:1.4;color:oklch(0.9 0.015 285)}
+  .lg-m b{font-family:var(--mono);font-size:.9rem;color:#fff;white-space:nowrap}
+  .lg-m-bar{grid-column:1/-1;display:block;height:14px;border-radius:2px;background-image:linear-gradient(var(--accent-lt),var(--accent-lt));background-repeat:no-repeat;background-position:0 0;background-size:var(--w) 100%}
+  .lg-m-in{background-image:linear-gradient(oklch(0.86 0.076 31.8 / .55),oklch(0.86 0.076 31.8 / .55))}
+  .lg-m li:first-child .lg-m-bar{background-image:linear-gradient(var(--accent),var(--accent))}
+  .lg-m-hatch{background-image:repeating-linear-gradient(45deg,oklch(0.666 0.222 31.8 / .6) 0 2px,transparent 2px 9px);background-size:100% 100%;outline:1px dashed var(--accent-lt);outline-offset:-1px}
+  .lg-m-ceil .lg-m-l{color:var(--accent-lt)}
+  /* tables become stacked records: the record title, then label and value rows (no sideways scroll) */
+  table.fin,table.raises{min-width:0;width:100%;font-size:.88rem}
+  table.fin.stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  table.fin.stack tbody,table.fin.stack tr{display:block}
+  table.fin.stack tr{padding:16px 18px;border-bottom:1px solid var(--line)}
+  table.fin.stack tbody tr:last-child{border-bottom:0}
+  table.fin.stack th,table.fin.stack td{display:grid;grid-template-columns:minmax(0,118px) minmax(0,1fr);gap:4px 12px;padding:5px 0;border:0;text-align:left;white-space:normal}
+  table.fin.stack th[scope="row"]{display:block;padding:0 0 6px;font-family:var(--serif);font-weight:700;font-size:1.06rem;color:var(--ink)}
+  table.raises th[scope="row"]{font-family:var(--serif);font-size:1.06rem;font-weight:700;letter-spacing:0;white-space:normal}
+  table.fin.stack td::before{content:attr(data-label);font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mid);padding-top:.3em}
+  table.fin.stack td.num{text-align:left;white-space:normal}
+  table.fin.stack caption{white-space:normal}
+  table.fin.stack td.srcc{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+  table.fin.stack td.srcc::before{flex:0 0 118px}
+  table.fin.stack tr.focal td,table.fin.stack tr.focal th{background:none}
+  table.fin.stack tr.focal{background:var(--tint)}
+  .filtable td.d,.filtable td.f,.filtable td.srcc{white-space:normal}
+  .notice{padding:20px 18px 16px}
+  .contact{padding-bottom:clamp(250px,70vw,320px)}
+  .contact-wrap{margin-left:auto;max-width:none}
+  .contact-col p a:not(.btn){display:inline;min-height:0}
+}
+@media (max-width:420px){.stats-band .stat-num{font-size:2.4rem}.snapshot .stat:nth-child(1) .stat-num,.snapshot .stat:nth-child(2) .stat-num{font-size:3.4rem}}
+
+/* ============================ PRINT ============================ */
+@media print{
+  .site-nav,.hero-art,.hero-cta,.concept-note{display:none}
+  .ledger-svg,.rings-svg{display:none}
+  .lg-m{display:grid}
+  .site-nav,.chip-p2,.chip-c{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+/* mc:surface */
+/* Cerenome: surface system. One measure for every stock, taken from the logomark's rings: a 32px minor and a 128px major rule
+   (four minors to a major, the rings' own overlap step). Six stocks: the coral hero (flat ground so the artwork sits flush, a ruler
+   skirting board), printed trim on white, BLIND WHITE ledger on the warm tint, negative ruling on the indigo bands, a plain
+   horizontal ledger for the gravest band (funding), and the contact band's own artwork stock.
+   Polarity flip (ir-build.md 5a): dark ruling on white stock, BLIND WHITE on the tint, white at very low alpha on dark.
+   Layer order on light stock: washes first (on top), ruling last (under). Trim rules sit 11px inside each band edge, unreachable
+   by text because .wrap is 100% - 44px (a 22px gutter). No glow, no blur, no new hue. */
+:root{
+  --edge:        oklch(0.30 0.030 285.6 / 0.26);   /* printed trim on white stock */
+  --edge-w:      oklch(1.00 0.000 0 / 0.85);       /* blind white trim on the tint */
+  --edge-n:      oklch(0.98 0.009 31.8 / 0.16);    /* negative trim on dark */
+  --edge-c:      oklch(0.233 0.092 285.6 / 0.30);  /* indigo trim on the coral hero */
+  --sheet-edge:  oklch(0.40 0.152 31.8 / 0.26);
+  --blind:       oklch(1.00 0.000 0 / 0.5);
+  --blind-k:     oklch(1.00 0.000 0 / 0.85);
+  --sheet-neg:   oklch(0.98 0.009 31.8 / 0.05);
+}
+
+/* 1. coral hero: flat ground (the artwork's own), indigo trim, and a ruler skirting board: 128px majors, 32px minors */
+.sec-coral{
+  background-color:var(--coral-art);
+  background-image:
+    linear-gradient(to right,oklch(0.233 0.092 285.6 / 0.70) 0 1px,transparent 1px),
+    linear-gradient(to right,oklch(0.233 0.092 285.6 / 0.45) 0 1px,transparent 1px),
+    linear-gradient(var(--edge-c),var(--edge-c)),
+    linear-gradient(var(--edge-c),var(--edge-c));
+  background-repeat:repeat-x,repeat-x,no-repeat,no-repeat;
+  background-position:calc(50% + 64px) 100%,calc(50% + 16px) 100%,11px 0,calc(100% - 11px) 0;
+  background-size:128px 16px,32px 8px,1px 100%,1px 100%;
+}
+
+/* 2. white stock: a warm-tint head wash, printed trim */
+.sec-white{
+  background-color:var(--paper);
+  background-image:
+    linear-gradient(to bottom,var(--tint) 0,var(--paper) 230px),
+    linear-gradient(var(--edge),var(--edge)),
+    linear-gradient(var(--edge),var(--edge));
+  background-repeat:no-repeat;
+  background-position:0 0,11px 0,calc(100% - 11px) 0;
+  background-size:100% 100%,1px 100%,1px 100%;
+}
+
+/* 3. tint stock: BLIND WHITE ledger, 32px minor and 128px major (white lifts the text, it never costs contrast), white trim */
+.sec-tint{
+  background-color:var(--tint);
+  background-image:
+    linear-gradient(var(--edge-w),var(--edge-w)),
+    linear-gradient(var(--edge-w),var(--edge-w)),
+    linear-gradient(to right,var(--blind-k) 0 1px,transparent 1px),
+    linear-gradient(to right,var(--blind) 0 1px,transparent 1px);
+  background-repeat:no-repeat,no-repeat,repeat,repeat;
+  background-position:11px 0,calc(100% - 11px) 0,calc(50% + 64px) 0,calc(50% + 16px) 0;
+  background-size:1px 100%,1px 100%,128px 100%,32px 100%;
+}
+
+/* 4. indigo bands (platform, contact): negative ruling on the same 32px / 128px sheet, negative trim */
+.sec-dark{
+  background-color:var(--deep);
+  background-image:
+    linear-gradient(to right,oklch(0.98 0.009 31.8 / 0.085) 0 1px,transparent 1px),
+    linear-gradient(to right,var(--sheet-neg) 0 1px,transparent 1px),
+    linear-gradient(var(--edge-n),var(--edge-n)),
+    linear-gradient(var(--edge-n),var(--edge-n));
+  background-repeat:repeat,repeat,no-repeat,no-repeat;
+  background-position:calc(50% + 64px) 0,calc(50% + 16px) 0,11px 0,calc(100% - 11px) 0;
+  background-size:128px 100%,32px 100%,1px 100%,1px 100%;
+}
+
+/* 5. the gravest band (funding and listing): its own stock, darker than every other band, plain horizontal ledger lines, nothing else.
+   Horizontal rules at 3.5% white leave the text tokens untouched (the lines fall between text lines at 48px). */
+.sec-grave{
+  background-color:var(--deep-2);
+  background-image:
+    linear-gradient(to bottom,oklch(0.98 0.009 31.8 / 0.035) 0 1px,transparent 1px),
+    linear-gradient(var(--edge-n),var(--edge-n)),
+    linear-gradient(var(--edge-n),var(--edge-n));
+  background-repeat:repeat,no-repeat,no-repeat;
+  background-position:0 0,11px 0,calc(100% - 11px) 0;
+  background-size:100% 48px,1px 100%,1px 100%;
+}
+
+/* 6. contact band: the company's own artwork (flat ground #181540 sampled from the image) bottom right, a left-to-right deepening so
+   no text ever sits on a coral stroke; the ground colour is the image's, so the picture edge never shows */
+.contact.sec-dark{
+  background-color:var(--deep-art);
+  background-image:
+    linear-gradient(to right,var(--deep-art) 0,var(--deep-art) 40%,oklch(0.20 0.06 285.6 / 0) 78%),
+    url(img/footer-bg.jpg),
+    linear-gradient(var(--edge-n),var(--edge-n)),
+    linear-gradient(var(--edge-n),var(--edge-n));
+  background-repeat:no-repeat,no-repeat,no-repeat,no-repeat;
+  background-position:0 0,right bottom,11px 0,calc(100% - 11px) 0;
+  background-size:100% 100%,auto 100%,1px 100%,1px 100%;
+}
+
+/* on a phone the artwork sits under the text, not beside it */
+@media (max-width:760px){.contact.sec-dark{background-size:100% 100%,auto 340px,1px 100%,1px 100%}}
+
+/* table plates stay opaque; no ruling behind data (verify.sh checks .table-scroll) */
+.table-scroll{background:var(--card)}
+
+@media print{
+  .sec-coral,.sec-white,.sec-tint,.sec-dark,.sec-grave,.contact.sec-dark{background-image:none}
+  .sec-coral{background-color:#fff;color:#111}
+  .sec-grave,.sec-dark,.contact.sec-dark{background-color:#fff;color:#111}
+  .sec-grave *,.sec-dark *{color:#111!important;fill:#111}
+}
+@media (forced-colors:active){
+  /* background-image is dropped in forced colours; the bands keep their edges instead */
+  .sec-coral,.sec-white,.sec-tint,.sec-dark,.sec-grave{border-block:1px solid CanvasText}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="concept-note">Independent design concept. Not affiliated with Cerenome, Inc. Official investor relations: <a href="https://ir.cerenome.com/" target="_blank" rel="noopener">ir.cerenome.com</a></div>
+
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href="#hero"><span class="nav-logo"><img src="img/logo-white.svg" alt="Cerenome" width="170" height="35"></span><span class="nav-tick">Nasdaq Capital Market: CNSY</span></a>
+    <nav aria-label="Primary">
+      <button class="nav-burger" id="nav-burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#platform">Platform</a></li>
+        <li><a href="#pipeline">Pipeline</a></li>
+        <li><a href="#financials">Financials</a></li>
+        <li><a href="#funding">Funding</a></li>
+        <li><a href="#filings">Filings</a></li>
+        <li><a class="btn btn-primary" href="#contact">Contact IR <span class="arw" aria-hidden="true">-&gt;</span></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<!-- ============ 00 HERO (coral, the company's own artwork on its own ground; the scan line is the one pausable motif) ============ -->
+<section id="hero" class="hero sec-coral" aria-labelledby="hero-h">
+  <div class="wrap hero-wrap">
+    <p class="eyebrow reveal"><span><span class="nw">Cerenome, Inc.</span> &middot; <span class="nw">Nasdaq: CNSY</span> &middot; <span class="nw">Houston, Texas</span> &middot; <span class="nw">formerly Plus Therapeutics</span></span></p>
+    <h1 id="hero-h" class="reveal" style="--d:.05s"><span class="h1-name">Cerenome</span> <span class="h1-sub">says it is building an integrated CNS oncology platform connecting diagnostics, therapeutics, and clinical data into one system.</span></h1>
+    <figure id="hero-motif" class="hero-art">
+      <img src="img/why-now-full.jpg" width="1700" height="1460" alt="Artwork from the company&rsquo;s website: a side view of a brain drawn as violet fibre tracts on a coral ground." fetchpriority="high">
+      <span class="motif-scan" aria-hidden="true"></span>
+      <figcaption>Artwork from the company&rsquo;s website. <span class="tg tg-site">Company site</span> <a class="src" href="https://cerenome.com/" target="_blank" rel="noopener">Home page</a></figcaption>
+    </figure>
+    <div class="hero-copy">
+      <p class="lead">The 10-K, filed under the former name Plus Therapeutics, describes the company as &ldquo;a U.S. healthcare company developing and commercializing precision diagnostics and targeted radiopharmaceuticals for central nervous system (&lsquo;CNS&rsquo;) cancers.&rdquo; <span class="tg tg-cs">Company statement</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526104258/pstv-20251231.htm" target="_blank" rel="noopener">10-K</a></p>
+      <p class="lead">The company changed its name from Plus Therapeutics, Inc. to Cerenome, Inc. effective August 3, 2026; its Nasdaq symbol changed to CNSY from PSTV the same day, and the CUSIP did not change. <span class="tg tg-f">Filed</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526332939/pstv-20260803.htm" target="_blank" rel="noopener">8-K, Aug 4</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526140267/pstv-20260401.htm" target="_blank" rel="noopener">8-K, Apr 2</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q</a></p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#readfirst">Read first <span class="arw" aria-hidden="true">&darr;</span></a>
+        <a class="btn btn-ghost" href="https://ir.cerenome.com/" target="_blank" rel="noopener">Official investor site <span class="arw" aria-hidden="true">&nearr;</span></a>
+        <button class="btn btn-ghost hero-pause" type="button" data-motif-toggle aria-pressed="false">Pause motion</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 00b READ FIRST (white): the notice is always visible and carries no .reveal ============ -->
+<section id="readfirst" class="readfirst sec-white" aria-label="Read first">
+  <div class="wrap">
+    <div class="notice" role="note">
+      <h2>Read first: four things the filings say</h2>
+      <ol>
+        <li><b>Going concern.</b> The 10-Q says the company &ldquo;has had, and will continue to have, an ongoing need to raise additional cash from outside sources&rdquo; and that &ldquo;These factors raise substantial doubt about the Company&rsquo;s ability to continue as a going concern.&rdquo; <span class="tg tg-cs">Company statement</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q</a> The same doubt is stated in the two earlier 10-Qs, the 10-K and the 10-K&rsquo;s auditor&rsquo;s report, which carries an explanatory paragraph on going concern; all of them predate the September 2026 financing. At June 30, 2026 the company held cash and cash equivalents of $2,366,000 and investments of $6,221,000. <span class="tg tg-f">Filed</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526226978/pstv-20260331.htm" target="_blank" rel="noopener">10-Q, May</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312525258596/pstv-20250930.htm" target="_blank" rel="noopener">10-Q, Oct 2025</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526104258/pstv-20251231.htm" target="_blank" rel="noopener">10-K</a></li>
+        <li><b>Funding.</b> After the quarter, on September 4, 2026, the company agreed to sell senior secured convertible notes of up to $21,276,596 in original principal to one institutional investor, secured by substantially all of its assets, with $3,000,000 of gross proceeds expected at the first closing. A press release furnished with the 8-K says the company &ldquo;received initial funding at closing,&rdquo; and the 8-K does not state the amount received. Cash used in operating activities in the six months to June 30, 2026 was $13,370,000. <span class="tg tg-f">Filed</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526387267/d382364d8k.htm" target="_blank" rel="noopener">8-K, Sep 10</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q</a></li>
+        <li><b>Listing.</b> After a 1-for-25 reverse split effective April 2, 2026, Nasdaq notified the company on April 20, 2026 that it had regained compliance with the minimum bid price requirement. The 10-Q says the company is in compliance with the minimum stockholders&rsquo; equity requirement and is subject to a panel monitoring period through August 22, 2026, during which a new shortfall would bring a delist determination with no compliance plan or extra time; stockholders&rsquo; equity was $5,463,000 at June 30. The earlier notices and hearings are listed under funding, and no filing used here after the 10-Q reports a Nasdaq notice. <span class="tg tg-f">Filed</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526140267/pstv-20260401.htm" target="_blank" rel="noopener">8-K, Apr 2</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526165205/pstv-20260420.htm" target="_blank" rel="noopener">8-K, Apr 21</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q</a></li>
+        <li><b>Grant revenue.</b> All reported revenue is grant revenue: $1,439,000 in the six months to June 30, 2026 against $2,449,000 a year earlier. The 10-Q says the company &ldquo;started commercial billing for diagnostic revenue&rdquo; but the estimated net revenue was &ldquo;immaterial for recognition in the statement of operations.&rdquo; The 10-Q says the CPRIT contract &ldquo;will terminate on August 28, 2026&rdquo; unless ended earlier; the company had received about $15.9 million of a grant of up to $17.6 million. <span class="tg tg-f">Filed</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q</a></li>
+      </ol>
+      <p class="cutoff">Cut-off: the newest 10-Q used here is the Form 10-Q filed Aug 14, 2026; the newest 8-K that reports a financing is the one filed Sep 10, 2026; the newest 8-K of any kind, filed Oct 2, 2026, furnishes an investor presentation and does not report the closing of that financing. EDGAR was last checked on October 19, 2026. <a class="inl" href="#funding">Read the funding section</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 01 SNAPSHOT (tint): four filed figures, each with its date and filing; modular cells of different weight ============ -->
+<section id="snapshot" class="snapshot sec-tint" aria-label="Key figures">
+  <div class="wrap">
+    <div class="stats-band">
+      <div class="stat reveal" style="--d:.04s">
+        <span class="stat-num">$2.4M</span>
+        <span class="stat-label">Cash and cash equivalents at June 30, 2026</span>
+        <span class="stat-src"><span class="tg tg-f">Filed</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q</a></span>
+      </div>
+      <div class="stat reveal" style="--d:.1s">
+        <span class="stat-num">$6.2M</span>
+        <span class="stat-label">Investments at June 30, 2026, held beside the cash</span>
+        <span class="stat-src"><span class="tg tg-f">Filed</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q</a></span>
+      </div>
+      <div class="stat reveal" style="--d:.16s">
+        <span class="stat-num">$13.4M</span>
+        <span class="stat-label">Cash used in operating activities, six months ended June 30, 2026</span>
+        <span class="stat-src"><span class="tg tg-f">Filed</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q</a></span>
+      </div>
+      <div class="stat reveal" style="--d:.22s">
+        <span class="stat-num">7.6</span>
+        <span class="stat-label">Common shares outstanding on Aug 5, 2026, after the April 2 reverse split</span>
+        <span class="stat-src"><span class="tg tg-f">Filed</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q cover</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ 02 PLATFORM (indigo band): three rings drawn from the company's logomark, one system ============ -->
+<section id="platform" class="platform sec-dark" aria-labelledby="plat-h">
+  <div class="wrap plat-grid">
+    <div class="plat-copy">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Platform</span>
+        <h2 id="plat-h">Diagnostics, therapeutics and data, described as one system</h2>
+        <p>The company&rsquo;s website says &ldquo;Cerenome connects precision diagnostics, targeted therapeutics, and patient data into an integrated central nervous system (CNS) oncology platform designed to improve how CNS cancers are detected, treated, and understood.&rdquo; The filings describe the products one by one; the stage labels below are the website&rsquo;s own. <span class="tg tg-site">Company site</span> <a class="src" href="https://cerenome.com/" target="_blank" rel="noopener">Home page</a></p>
+      </div>
+      <ol class="caps">
+        <li class="cap reveal">
+          <h3><span class="cap-n">01</span> Diagnostics: CNSide&reg;</h3>
+          <p>The website says CNSide &ldquo;detects, characterizes, and monitors CNS cancer from cerebrospinal fluid.&rdquo; The 10-K says the company re-introduced the CNSide Cerebrospinal Fluid Tumor Cell Enumeration test, a laboratory developed test, in August 2025, and that its Houston laboratory has a CMS certificate of accreditation under CLIA. The 10-Q lists payer coverage and reimbursement for the assay among its risks. <span class="tg tg-cs">Company statement</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526104258/pstv-20251231.htm" target="_blank" rel="noopener">10-K</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q</a> <span class="tg tg-site">Company site</span> <a class="src" href="https://cerenome.com/" target="_blank" rel="noopener">Home page</a></p>
+        </li>
+        <li class="cap reveal" style="--d:.06s">
+          <h3><span class="cap-n">02</span> Therapeutics: REYOBIQ&trade;</h3>
+          <p>The website calls REYOBIQ the lead of &ldquo;a portfolio of targeted radiotherapeutics being designed to deliver where conventional therapies often cannot.&rdquo; The 10-Q gives its chemical name: &ldquo;rhenium (186 Re) obisbemeda (REYOBIQ).&rdquo; <span class="tg tg-cs">Company statement</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q</a> <span class="tg tg-site">Company site</span> <a class="src" href="https://cerenome.com/" target="_blank" rel="noopener">Home page</a></p>
+        </li>
+        <li class="cap reveal" style="--d:.12s">
+          <h3><span class="cap-n">03</span> Data insights</h3>
+          <p>The website says &ldquo;Clinical data and AI help to generate insights that improve future patient care,&rdquo; and labels its Clinical Intelligence Platform &ldquo;Launching soon.&rdquo; <span class="tg tg-site">Company site</span> <a class="src" href="https://cerenome.com/" target="_blank" rel="noopener">Home page</a></p>
+        </li>
+      </ol>
+    </div>
+    <figure class="rings-fig reveal" style="--d:.1s">
+      <svg class="rings-svg" viewBox="0 62 400 410" role="img" aria-labelledby="rg-t rg-d" focusable="false">
+        <title id="rg-t">Three overlapping rings: diagnostics, therapeutics and data</title>
+        <desc id="rg-d">Three ellipses stacked and overlapping, split by a narrow vertical gap, after the company logomark. The top ring is diagnostics (CNSide), the middle ring is therapeutics (REYOBIQ) and the bottom ring is data insights (Clinical Intelligence Platform).</desc>
+        <defs><mask id="rg-gap" maskUnits="userSpaceOnUse" x="0" y="0" width="400" height="540"><rect width="400" height="540" fill="#fff"/><rect x="187" y="0" width="26" height="540" fill="#000"/></mask></defs>
+        <g mask="url(#rg-gap)" fill="none" stroke-width="11">
+          <ellipse class="rg rg-a" cx="200" cy="150" rx="150" ry="72"/>
+          <ellipse class="rg rg-b" cx="200" cy="270" rx="150" ry="72"/>
+          <ellipse class="rg rg-c" cx="200" cy="390" rx="150" ry="72"/>
+        </g>
+        <g class="rg-labels">
+          <text class="rg-t1" x="200" y="146" text-anchor="middle">DIAGNOSTICS</text><text class="rg-t2" x="200" y="164" text-anchor="middle">CNSide&reg;</text>
+          <text class="rg-t1" x="200" y="266" text-anchor="middle">THERAPEUTICS</text><text class="rg-t2" x="200" y="284" text-anchor="middle">REYOBIQ&trade;</text>
+          <text class="rg-t1" x="200" y="386" text-anchor="middle">DATA INSIGHTS</text><text class="rg-t2" x="200" y="404" text-anchor="middle">Clinical Intelligence Platform</text>
+        </g>
+      </svg>
+      <figcaption>The rings follow the company&rsquo;s logomark; the labels are the three capabilities named on its website. The drawing adds no figure and no stage. <span class="tg tg-site">Company site</span> <a class="src" href="https://cerenome.com/" target="_blank" rel="noopener">Home page</a></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 03 PIPELINE (white): the matrix, programme by programme ============ -->
+<section id="pipeline" class="pipeline sec-white" aria-labelledby="pipe-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Pipeline</span>
+      <h2 id="pipe-h">REYOBIQ by indication, CNSide, and one acquired candidate</h2>
+      <p>The stage column is the company website&rsquo;s own label; the right column is what the filings say. Of glioblastoma (GBM) the 10-K says it &ldquo;affects approximately 15,000 patients annually in the U.S.&rdquo; <span class="tg tg-cs">Company statement</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526104258/pstv-20251231.htm" target="_blank" rel="noopener">10-K</a></p>
+    </div>
+    <div class="matrix" role="table" aria-label="Programmes, website stage and filing statements">
+      <div class="mrow mrow-h" role="row" aria-hidden="true"><span>Programme</span><span>Stage, per the website</span><span>What the filings say</span></div>
+      <div class="mrow reveal" role="row">
+        <div class="mname" role="cell"><b>Recurrent glioblastoma</b><span>REYOBIQ, ReSPECT-GBM</span></div>
+        <div class="mstage" role="cell"><span class="chip chip-p2">Phase 2</span></div>
+        <div class="mnote" role="cell"><p>The 10-K describes ReSPECT-GBM as a Phase 1/2 multicenter, open-label, volume and dose escalation study of the safety, tolerability and distribution of rhenium (186 Re) obisbemeda given by CED catheters. It says the drug has orphan drug designation for GBM and Fast Track designation for recurrent GBM, and that a $3.0 million award from the U.S. National Institutes of Health/National Cancer Institute &ldquo;is expected to provide financial support&rdquo; through a Phase 2 trial &ldquo;including enrollment of up to 55 patients.&rdquo; <span class="tg tg-cs">Company statement</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526104258/pstv-20251231.htm" target="_blank" rel="noopener">10-K</a></p></div>
+      </div>
+      <div class="mrow reveal" role="row">
+        <div class="mname" role="cell"><b>Leptomeningeal metastases</b><span>REYOBIQ, ReSPECT-LM</span></div>
+        <div class="mstage" role="cell"><span class="chip chip-p2">Phase 2</span></div>
+        <div class="mnote" role="cell"><p>The 10-K says that in December 2025 the company reported completion of the ReSPECT-LM single-dose trial: well tolerated up to a maximum tolerated dose of 66mCi, with a recommended phase 2 dose of 44.1 mCi. It adds that the ReSPECT-LM multi-dose Phase 1/2 study &ldquo;is currently enrolling patients for the Phase 2 portion of the Study.&rdquo; The 10-Q says CPRIT funds development of the drug for this indication. The 10-K and 10-Q add that at the November 2025 end-of-phase-1 meeting the &ldquo;FDA conveyed that while accelerated approval may be appropriate for this indication, there are insufficient data to support the use of CTCs as an intermediate clinical endpoint,&rdquo; and recommended an endpoint with established clinical benefit, such as overall survival. <span class="tg tg-cs">Company statement</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526104258/pstv-20251231.htm" target="_blank" rel="noopener">10-K</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q</a></p></div>
+      </div>
+      <div class="mrow reveal" role="row">
+        <div class="mname" role="cell"><b>Pediatric ependymoma and high-grade glioma</b><span>REYOBIQ, ReSPECT-PBC</span></div>
+        <div class="mstage" role="cell"><span class="chip chip-p1">Phase 1</span></div>
+        <div class="mnote" role="cell"><p>An 8-K filed April 8, 2026 reports that the company announced REYOBIQ (rhenium Re186 obisbemeda) was granted Orphan Drug Designation by the FDA for the treatment of pediatric malignant gliomas. <span class="tg tg-f">Filed</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526146335/pstv-20260408.htm" target="_blank" rel="noopener">8-K, Apr 8</a> The 10-Q says the company anticipates beginning enrollment, with its first patient enrolled, &ldquo;in the second half of 2026.&rdquo; <span class="tg tg-cs">Company statement</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q</a></p></div>
+      </div>
+      <div class="mrow reveal" role="row">
+        <div class="mname" role="cell"><b>CNSide diagnostics</b><span>CNSide Diagnostics, LLC</span></div>
+        <div class="mstage" role="cell"><span class="chip chip-c">Commercial</span><span class="chip chip-s">Targeted biomarker analysis: launching soon</span></div>
+        <div class="mnote" role="cell"><p>The 10-K calls CNSide Diagnostics, LLC a wholly owned subsidiary that &ldquo;develops and commercializes proprietary laboratory-developed tests, such as CNSide&reg;.&rdquo; The 10-Q says the company &ldquo;started commercial billing for diagnostic revenue&rdquo; in the six months but the estimated net revenue was &ldquo;immaterial for recognition in the statement of operations&rdquo;; the only revenue line it reports is grant revenue. Among the 10-K risk factors: &ldquo;There can be no assurance that we will be able to generate or grow sales of the CNSide Test &hellip;&rdquo; <span class="tg tg-cs">Company statement</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526104258/pstv-20251231.htm" target="_blank" rel="noopener">10-K</a> <span class="tg tg-f">Filed</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q</a></p></div>
+      </div>
+      <div class="mrow reveal" role="row">
+        <div class="mname" role="cell"><b>188RNL-BAM</b><span>Acquired candidate</span></div>
+        <div class="mstage" role="cell"><span class="chip chip-n">Not listed on the website</span></div>
+        <div class="mnote" role="cell"><p>The 10-K describes Rhenium-188 NanoLiposome Biodegradable Alginate Microsphere (188RNL-BAM) as an acquired radiotherapeutic candidate &ldquo;designed to treat many solid organ cancers including primary and secondary liver cancers by intra-arterial injection.&rdquo; The 10-K and 10-Q also call it &ldquo;a preclinical investigational device we intend to further develop and move into clinical trials,&rdquo; and say the FDA has informed the company it will be regulated as a medical device. <span class="tg tg-cs">Company statement</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526104258/pstv-20251231.htm" target="_blank" rel="noopener">10-K</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q</a></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ 04 FINANCIALS (tint): statements as filed, then what sits inside the numbers ============ -->
+<section id="financials" class="fins sec-tint" aria-labelledby="fin-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Financials</span>
+      <h2 id="fin-h">What the statements show</h2>
+      <p>US dollars as filed; the filings print thousands. Columns are labelled by the period they end. The company filed as Plus Therapeutics from July 2019 until August 2026, and before that as Cytori Therapeutics; years before 2023 are not shown.</p>
+    </div>
+    <div class="table-scroll reveal">
+      <table class="fin stack">
+        <caption>Years ended December 31 <span class="tg tg-f">Filed</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526104258/pstv-20251231.htm" target="_blank" rel="noopener">10-K</a></caption>
+        <thead><tr><th scope="col">Period</th><th scope="col" class="num">Year ended Dec 31, 2025</th><th scope="col" class="num">Year ended Dec 31, 2024</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Grant revenue</th><td class="num" data-label="Year ended Dec 31, 2025">$5,213,000</td><td class="num" data-label="Year ended Dec 31, 2024">$5,824,000</td></tr>
+          <tr><th scope="row">Research and development expenses</th><td class="num" data-label="Year ended Dec 31, 2025">$8,379,000</td><td class="num" data-label="Year ended Dec 31, 2024">$10,580,000</td></tr>
+          <tr><th scope="row">General and administrative expenses</th><td class="num" data-label="Year ended Dec 31, 2025">$12,132,000</td><td class="num" data-label="Year ended Dec 31, 2024">$9,939,000</td></tr>
+          <tr><th scope="row">Operating loss</th><td class="num" data-label="Year ended Dec 31, 2025">($15,298,000)</td><td class="num" data-label="Year ended Dec 31, 2024">($14,695,000)</td></tr>
+          <tr><th scope="row">Total other income (expense)</th><td class="num" data-label="Year ended Dec 31, 2025">($7,088,000)</td><td class="num" data-label="Year ended Dec 31, 2024">$1,717,000</td></tr>
+          <tr class="focal"><th scope="row"><b>Net loss</b></th><td class="num" data-label="Year ended Dec 31, 2025">($22,386,000)</td><td class="num" data-label="Year ended Dec 31, 2024">($12,978,000)</td></tr>
+          <tr><th scope="row">Net cash used in operating activities</th><td class="num" data-label="Year ended Dec 31, 2025">($20,775,000)</td><td class="num" data-label="Year ended Dec 31, 2024">($10,554,000)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fin-note reveal"><b>Inside the 2025 net loss.</b> Operating loss was $15,298,000; the other $7,088,000 of net other expense is made up of financing expense of $3,061,000, a $2,631,000 change in the fair value of derivative instruments, warrant issuance costs of $964,000 and interest expense of $548,000, less interest income of $116,000. <span class="tg tg-f">Filed</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526104258/pstv-20251231.htm" target="_blank" rel="noopener">10-K</a></p>
+    <div class="table-scroll reveal">
+      <table class="fin stack">
+        <caption>Six months ended June 30 <span class="tg tg-f">Filed</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q</a></caption>
+        <thead><tr><th scope="col">Period</th><th scope="col" class="num">Six months ended Jun 30, 2026</th><th scope="col" class="num">Six months ended Jun 30, 2025</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Grant revenue</th><td class="num" data-label="Six months ended Jun 30, 2026">$1,439,000</td><td class="num" data-label="Six months ended Jun 30, 2025">$2,449,000</td></tr>
+          <tr><th scope="row">Research and development expenses</th><td class="num" data-label="Six months ended Jun 30, 2026">$7,130,000</td><td class="num" data-label="Six months ended Jun 30, 2025">$3,002,000</td></tr>
+          <tr><th scope="row">General and administrative expenses</th><td class="num" data-label="Six months ended Jun 30, 2026">$10,485,000</td><td class="num" data-label="Six months ended Jun 30, 2025">$4,521,000</td></tr>
+          <tr><th scope="row">Operating loss</th><td class="num" data-label="Six months ended Jun 30, 2026">($16,176,000)</td><td class="num" data-label="Six months ended Jun 30, 2025">($5,074,000)</td></tr>
+          <tr><th scope="row">Total other income (expense)</th><td class="num" data-label="Six months ended Jun 30, 2026">$224,000</td><td class="num" data-label="Six months ended Jun 30, 2025">($7,176,000)</td></tr>
+          <tr class="focal"><th scope="row"><b>Net loss</b></th><td class="num" data-label="Six months ended Jun 30, 2026">($15,952,000)</td><td class="num" data-label="Six months ended Jun 30, 2025">($12,250,000)</td></tr>
+          <tr><th scope="row">Net cash used in operating activities</th><td class="num" data-label="Six months ended Jun 30, 2026">($13,370,000)</td><td class="num" data-label="Six months ended Jun 30, 2025">($11,970,000)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fin-note reveal"><b>Expenses are rising while grant revenue falls.</b> The six months to June 30, 2025 carried $7,176,000 of net other expense, mostly financing expenses of $3,061,000, derivative fair-value changes of $2,631,000 and warrant issuance costs of $964,000; the 2026 period had net other income of $224,000. <span class="tg tg-f">Filed</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q</a> The 10-Q says general and administrative expenses rose $6.0 million in the six months, primarily from $2.6 million more compensation (including $1.5 million more stock-based compensation), $2.1 million more legal and professional fees and $0.6 million more rent, and research and development expenses rose about $4.1 million. <span class="tg tg-cs">Company statement</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q</a></p>
+    <div class="table-scroll reveal">
+      <table class="fin stack">
+        <caption>Balance sheet items <span class="tg tg-f">Filed</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q</a> <span class="tg tg-cm">Computed</span></caption>
+        <thead><tr><th scope="col">Period</th><th scope="col" class="num">Jun 30, 2026</th><th scope="col" class="num">Dec 31, 2025</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Cash and cash equivalents</th><td class="num" data-label="Jun 30, 2026">$2,366,000</td><td class="num" data-label="Dec 31, 2025">$4,256,000</td></tr>
+          <tr><th scope="row">Investments</th><td class="num" data-label="Jun 30, 2026">$6,221,000</td><td class="num" data-label="Dec 31, 2025">$4,356,000</td></tr>
+          <tr><th scope="row">Total current assets</th><td class="num" data-label="Jun 30, 2026">$11,771,000</td><td class="num" data-label="Dec 31, 2025">$15,170,000</td></tr>
+          <tr><th scope="row">Total current liabilities</th><td class="num" data-label="Jun 30, 2026">$8,567,000</td><td class="num" data-label="Dec 31, 2025">$12,314,000</td></tr>
+          <tr><th scope="row">Working capital (current assets less current liabilities, computed)</th><td class="num" data-label="Jun 30, 2026">$3,204,000</td><td class="num" data-label="Dec 31, 2025">$2,856,000</td></tr>
+          <tr><th scope="row">Total stockholders&rsquo; equity</th><td class="num" data-label="Jun 30, 2026">$5,463,000</td><td class="num" data-label="Dec 31, 2025">$3,996,000</td></tr>
+          <tr><th scope="row">Accumulated deficit</th><td class="num" data-label="Jun 30, 2026">($531,817,000)</td><td class="num" data-label="Dec 31, 2025">($515,865,000)</td></tr>
+          <tr><th scope="row">Common shares outstanding</th><td class="num" data-label="Jun 30, 2026">7,310,008</td><td class="num" data-label="Dec 31, 2025">5,547,034</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fin-note reveal">At December 31, 2025 the balance sheet also carried $4,502,000 of restricted cash and an equal &ldquo;investor liability pursuant to Letter Agreement&rdquo;; neither remains at June 30, 2026: the 10-Q says the company paid the March 2025 private-placement purchasers $4.5 million to fully satisfy the investor liability, and 272,821 shares were returned and cancelled. The company also reports a $927,000 deferred grant liability at both dates and no line of credit at June 30, 2026 against $750,000 at December 31, 2025. <span class="tg tg-f">Filed</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q</a></p>
+  </div>
+</section>
+<!-- ============ 05 FUNDING AND LISTING (the gravest band): the company's own statement, what each number is, every financing and listing event, the September notes ============ -->
+<section id="funding" class="funding sec-dark sec-grave" aria-labelledby="fund-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Funding and listing</span>
+      <h2 id="fund-h">Funding, dilution and the listing record</h2>
+      <p>The company&rsquo;s own statement on funding comes first, then what each number in it is, then each financing and listing event with its terms, newest last.</p>
+    </div>
+    <blockquote class="mgmt reveal">
+      <h3>Management&rsquo;s statement</h3>
+      <p>&ldquo;The Company has had, and will continue to have, an ongoing need to raise additional cash from outside sources to fund its future clinical development programs, launch the CNSide Test, and fund other operations. There can be no assurance that the Company will be able to continue to raise additional capital in the future. The Company&rsquo;s inability to raise additional cash would have a material and adverse impact on its operations. These factors raise substantial doubt about the Company&rsquo;s ability to continue as a going concern.&rdquo;</p>
+      <p>&ldquo;If sufficient capital is not raised, the Company will at a minimum need to significantly reduce or curtail its research and development and other operations, and this would have a material adverse impact on its operations.&rdquo;</p>
+      <p class="mgmt-src"><span class="tg tg-cs">Company statement</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q, filed Aug 14, 2026</a></p>
+    </blockquote>
+    <figure class="ledger-fig reveal">
+      <svg class="ledger-svg" viewBox="0 0 1000 410" role="img" aria-labelledby="lg-t lg-d" focusable="false">
+        <title id="lg-t">What each funding number is, on one scale</title>
+        <desc id="lg-d">Horizontal bars on a scale cut at $15 million. Cash at June 30, 2026 and investments at June 30, 2026 are two bars; cash used in operations over the six months is a longer bar; net proceeds from at-the-market sales over the six months and grant revenue over the six months are two short bars. The at-the-market capacity of $17.35 million runs off the scale as a hatched bar with a break mark, labelled capacity and not cash.</desc>
+        <defs><pattern id="hatch-l" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="10" class="lg-hatch"/></pattern></defs>
+        <line class="lg-grid" x1="300" y1="14" x2="300" y2="340"/><line class="lg-grid" x1="500" y1="14" x2="500" y2="340"/><line class="lg-grid" x1="700" y1="14" x2="700" y2="340"/><line class="lg-grid" x1="900" y1="14" x2="900" y2="340"/>
+        <text class="lg-t lg-t-r" x="288" y="41">Cash and cash equivalents<tspan class="lg-t-s" x="288" dy="14">Jun 30, 2026</tspan></text>
+        <rect class="lg-bar lg-bar-cash" x="300" y="34" width="94.6" height="22" rx="2"/>
+        <text class="lg-t lg-t-v" x="404" y="50">$2.37M</text>
+        <text class="lg-t lg-t-r" x="288" y="97">Investments<tspan class="lg-t-s" x="288" dy="14">Jun 30, 2026</tspan></text>
+        <rect class="lg-bar lg-bar-in" x="300" y="90" width="248.8" height="22" rx="2"/>
+        <text class="lg-t lg-t-v" x="558" y="106">$6.22M</text>
+        <text class="lg-t lg-t-r" x="288" y="153">Cash used in operations<tspan class="lg-t-s" x="288" dy="14">six months to Jun 30, 2026</tspan></text>
+        <rect class="lg-bar" x="300" y="146" width="534.8" height="22" rx="2"/>
+        <text class="lg-t lg-t-v" x="845" y="162">$13.37M</text>
+        <text class="lg-t lg-t-r" x="288" y="209">At-the-market net proceeds<tspan class="lg-t-s" x="288" dy="14">same six months</tspan></text>
+        <rect class="lg-bar lg-bar-in" x="300" y="202" width="72" height="22" rx="2"/>
+        <text class="lg-t lg-t-v" x="382" y="218">$1.8M</text>
+        <text class="lg-t lg-t-r" x="288" y="265">Grant revenue<tspan class="lg-t-s" x="288" dy="14">same six months</tspan></text>
+        <rect class="lg-bar lg-bar-in" x="300" y="258" width="57.6" height="22" rx="2"/>
+        <text class="lg-t lg-t-v" x="367" y="274">$1.44M</text>
+        <text class="lg-t lg-t-r" x="288" y="321">At-the-market agreement size<tspan class="lg-t-s" x="288" dy="14">Jun 1, 2026</tspan></text>
+        <rect class="lg-bar-ceil" x="300" y="314" width="600" height="22" rx="2" fill="url(#hatch-l)"/>
+        <rect class="lg-bar-ceil-b" x="300" y="314" width="600" height="22" rx="2"/>
+        <path class="lg-break" d="M770 310 L782 340 M782 310 L794 340"/>
+        <text class="lg-t lg-t-w" x="912" y="330">$17.35M</text>
+        <text class="lg-t lg-t-w" x="300" y="356">CAPACITY, NOT CASH: SALES DEPEND ON MARKET DEMAND; ABOUT $1.85M GROSS SOLD BY JUN 30</text>
+        <g class="lg-t"><text x="300" y="386" text-anchor="middle">$0</text><text x="500" y="386" text-anchor="middle">$5M</text><text x="700" y="386" text-anchor="middle">$10M</text><text x="900" y="386" text-anchor="middle">$15M, SCALE CUT</text></g>
+      </svg>
+      <ul class="lg-m">
+        <li><span class="lg-m-l">Cash and cash equivalents, Jun 30, 2026</span><b>$2.37M</b><span class="lg-m-bar" style="--w:15.8%" aria-hidden="true"></span></li>
+        <li><span class="lg-m-l">Investments, Jun 30, 2026</span><b>$6.22M</b><span class="lg-m-bar lg-m-in" style="--w:41.5%" aria-hidden="true"></span></li>
+        <li><span class="lg-m-l">Cash used in operations, six months to Jun 30, 2026</span><b>$13.37M</b><span class="lg-m-bar" style="--w:89.1%" aria-hidden="true"></span></li>
+        <li><span class="lg-m-l">At-the-market net proceeds, same six months</span><b>$1.8M</b><span class="lg-m-bar lg-m-in" style="--w:12%" aria-hidden="true"></span></li>
+        <li><span class="lg-m-l">Grant revenue, same six months</span><b>$1.44M</b><span class="lg-m-bar lg-m-in" style="--w:9.6%" aria-hidden="true"></span></li>
+        <li class="lg-m-ceil"><span class="lg-m-l">At-the-market agreement size, Jun 1, 2026: capacity, not cash; about $1.85M gross sold by Jun 30</span><b>$17.35M</b><span class="lg-m-bar lg-m-hatch" style="--w:100%" aria-hidden="true"></span></li>
+      </ul>
+      <figcaption>Drawn from the 10-Q balance sheet, statement of operations and cash flow statement, and the equity note. The capacity bar is the whole size of the agreement, cut off at the edge of the scale. The 10-Q cash flow shows $1,853,000 of gross proceeds from it by June 30; the filings do not state the remainder, which is at most about $15.5M (computed). <span class="tg tg-f">Filed</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q</a> <span class="tg tg-cm">Computed</span></figcaption>
+    </figure>
+    <div class="table-scroll reveal">
+      <table class="fin stack raises">
+        <caption>Financing and listing events, as filed</caption>
+        <thead><tr><th scope="col">When</th><th scope="col">What</th><th scope="col">Terms as filed</th><th scope="col">Source</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><time datetime="2024-03-08">Mar 8, 2024</time></th><td data-label="What">Nasdaq notice: stockholders&rsquo; equity below the minimum</td><td data-label="Terms as filed">Written notice that the company no longer complied with Nasdaq Listing Rule 5550(b)(1), which requires $2.5 million in stockholders&rsquo; equity or an alternative standard</td><td class="srcc" data-label="Source"><a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312525258596/pstv-20250930.htm" target="_blank" rel="noopener">10-Q, Oct 2025</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526104258/pstv-20251231.htm" target="_blank" rel="noopener">10-K</a></td></tr>
+          <tr><th scope="row"><time datetime="2024-09-05">Sep 5, 2024</time></th><td data-label="What">Compliance not regained; panel hearing</td><td data-label="Terms as filed">Nasdaq notified the company it had not regained compliance; the company requested a hearing, and on Oct 30, 2024 the panel gave it until March 4, 2025</td><td class="srcc" data-label="Source"><a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312525258596/pstv-20250930.htm" target="_blank" rel="noopener">10-Q, Oct 2025</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526104258/pstv-20251231.htm" target="_blank" rel="noopener">10-K</a></td></tr>
+          <tr><th scope="row"><time datetime="2025-03-07">Mar 7, 2025</time></th><td data-label="What">Equity compliance regained; panel monitor</td><td data-label="Terms as filed">Nasdaq notified the company it had regained compliance and that it was subject to a Mandatory Panel Monitor until March 7, 2026</td><td class="srcc" data-label="Source"><a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312525258596/pstv-20250930.htm" target="_blank" rel="noopener">10-Q, Oct 2025</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526104258/pstv-20251231.htm" target="_blank" rel="noopener">10-K</a></td></tr>
+          <tr><th scope="row"><time datetime="2025-06-03">Jun 3, 2025</time></th><td data-label="What">Nasdaq staff delist determination</td><td data-label="Terms as filed">The Staff notified the company it was not in compliance after stockholders&rsquo; equity (deficit) of ($23,641,000) at March 31, 2025, and determined to delist the securities unless the company timely requested an appeal</td><td class="srcc" data-label="Source"><a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312525258596/pstv-20250930.htm" target="_blank" rel="noopener">10-Q, Oct 2025</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526104258/pstv-20251231.htm" target="_blank" rel="noopener">10-K</a></td></tr>
+          <tr><th scope="row"><time datetime="2025-06-17">Jun 17, 2025</time></th><td data-label="What">Purchase agreement with Lincoln Park Capital Fund</td><td data-label="Terms as filed">Up to $50.0 million of common stock over 36 months from June 23, 2025 at the company's right but not its obligation; resale registration for up to 2,000,000 shares; no shares were issued under it in the six months to June 30, 2026</td><td class="srcc" data-label="Source"><a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q</a></td></tr>
+          <tr><th scope="row"><time datetime="2025-08-22">Aug 22, 2025</time></th><td data-label="What">Nasdaq letter confirming compliance; one-year monitoring</td><td data-label="Terms as filed">Confirmed compliance with Rule 5550(b), and that the company remains subject to a one-year panel monitoring period through August 22, 2026 on the stockholders&rsquo; equity requirement</td><td class="srcc" data-label="Source"><a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312525258596/pstv-20250930.htm" target="_blank" rel="noopener">10-Q, Oct 2025</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526104258/pstv-20251231.htm" target="_blank" rel="noopener">10-K</a></td></tr>
+          <tr><th scope="row"><time datetime="2025-11-13">Nov 13, 2025</time></th><td data-label="What">Nasdaq grants an additional 180 days for the minimum bid price</td><td data-label="Terms as filed">A second Nasdaq Staff letter, dated Nov 13 and announced Nov 17, granted an additional 180 calendar days, until May 11, 2026; the first notice was May 16, 2025, with a compliance period to Nov 12, 2025</td><td class="srcc" data-label="Source"><a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312525283935/d55484d8k.htm" target="_blank" rel="noopener">8-K, Nov 17</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312525258596/pstv-20250930.htm" target="_blank" rel="noopener">10-Q, Oct 2025</a></td></tr>
+          <tr><th scope="row"><time datetime="2026-01-13">Jan 13, 2026</time></th><td data-label="What">Underwritten public offering of common stock and warrants (Lake Street Capital Markets)</td><td data-label="Terms as filed">39,473,684 shares and warrants to buy 39,473,684 shares at a combined $0.38; warrants at $0.38 for five years; underwriter&rsquo;s option exercised for 5,921,052 additional warrants; closed Jan 15; net proceeds about $13.3 million. Figures are before the April reverse split; the 10-Q later reports net proceeds of about $13.9 million and 1,578,947 shares issued in the offering on the post-split count</td><td class="srcc" data-label="Source"><a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526015346/d65677d8k.htm" target="_blank" rel="noopener">8-K, Jan 16</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q</a></td></tr>
+          <tr><th scope="row"><time datetime="2026-04-02">Apr 2, 2026</time></th><td data-label="What">1-for-25 reverse stock split</td><td data-label="Terms as filed">Effective 12:01 a.m. Eastern on April 2, 2026; every twenty-five shares became one</td><td class="srcc" data-label="Source"><a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526140267/pstv-20260401.htm" target="_blank" rel="noopener">8-K, Apr 2</a></td></tr>
+          <tr><th scope="row"><time datetime="2026-04-20">Apr 20, 2026</time></th><td data-label="What">Nasdaq notice: minimum bid price compliance regained</td><td data-label="Terms as filed">Sent after the reverse split</td><td class="srcc" data-label="Source"><a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526165205/pstv-20260420.htm" target="_blank" rel="noopener">8-K, Apr 21</a></td></tr>
+          <tr><th scope="row"><time datetime="2026-06-01">Jun 1, 2026</time></th><td data-label="What">At-the-market Equity Distribution Agreement (Canaccord Genuity)</td><td data-label="Terms as filed">Up to $17,350,000 of common stock, depending on market demand; 436,448 shares issued in the six months to June 30 for net proceeds of about $1.8M</td><td class="srcc" data-label="Source"><a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526259703/pstv-20260601.htm" target="_blank" rel="noopener">8-K, Jun 5</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q</a></td></tr>
+          <tr><th scope="row"><time datetime="2026-09-04">Sep 4, 2026</time></th><td data-label="What">Securities purchase agreement for senior secured convertible notes, one institutional investor</td><td data-label="Terms as filed">Up to $21,276,596 original principal: $3,191,489 initial notes, $2,127,660 second notes and $15,957,447 additional notes; $3,000,000 gross proceeds expected at the initial closing, expected on or about Sep 10</td><td class="srcc" data-label="Source"><a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526387267/d382364d8k.htm" target="_blank" rel="noopener">8-K, Sep 10</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="fund-grid">
+      <div class="fg reveal">
+        <h3>The September notes, term by term</h3>
+        <p>The 8-K says each note is issued with an original issue discount of 6.0%, accrues interest at 8.0% a year (up to 18% after an event of default) and matures one year after issue. The notes are secured by a first-priority security interest in substantially all assets of the company and CNSide Diagnostics, LLC, including a pledge of the equity of CNSide. The initial conversion price of the initial notes is $2.74 a share with a floor price of $0.50; on an event of default the holder can convert at the lowest of the conversion price, 85% of the prior-day VWAP and a lower VWAP-based price. A change of control lets the holder require redemption in cash at a price that includes a 120% redemption premium. The holder cannot own more than 4.99% of the shares (up to 9.99% at its election), and each note has an exchange cap intended to comply with Nasdaq rules, subject to stockholder approval or an opinion of counsel. Interest is guaranteed through maturity even if a note is converted or redeemed earlier. CNSide is to pay the investor each quarter 2.5% of its gross revenues, subject to customary exclusions and to a quarterly cap of 2.5% of the unpaid balance of the notes, within 30 days after quarter end, until the notes are paid in full; the company guarantees it. The second notes are issued when the resale registration statement is effective, and the investor can elect, and in some conditions the company can require, purchases of the additional notes for 18 months after the initial closing. The company intends to use net proceeds for working capital and general corporate purposes. <span class="tg tg-f">Filed</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526387267/d382364d8k.htm" target="_blank" rel="noopener">8-K, Sep 10</a></p>
+        <p>The 8-K body describes the initial closing as expected on or about September 10, 2026 and does not state the amount received. A press release furnished as Exhibit 99.1 to the same 8-K, dated September 10, calls the deal &ldquo;a senior secured facility of up to $20 million&rdquo; with 3i, LP, says the company &ldquo;received initial funding at closing,&rdquo; and says: &ldquo;We forecast our cash runway is now well into 2028 when we consider, the 3i facility, other existing facilities along with current cash and forecasted CNSide related sales and cash flow.&rdquo; <span class="tg tg-cs">Company statement</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526387267/d382364d8k.htm" target="_blank" rel="noopener">8-K, Sep 10</a></p>
+        <p>The going-concern language above is from the 10-Q filed August 14, 2026, before the September 4 agreement; no filing used here updates it. The newest 8-K, filed October 2, 2026, furnishes an investor presentation and does not report the closing. <span class="tg tg-f">Filed</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526411259/cnsy-20261002.htm" target="_blank" rel="noopener">8-K, Oct 2</a></p>
+      </div>
+      <div class="fg reveal" style="--d:.06s">
+        <h3>Shares, and the grant that ends</h3>
+        <ul class="shares">
+          <li><span>Dec 31, 2025</span><b>5,547,034</b></li>
+          <li><span>Jun 30, 2026</span><b>7,310,008</b></li>
+          <li><span>Aug 5, 2026, 10-Q cover</span><b>7,589,625</b></li>
+        </ul>
+        <p>After the quarter, on August 10, 2026, the company amended its Houston lease to about 36,473 rentable square feet at a monthly base rent of $188,443.83 rising about 3.0% a year, with a rent abatement for the first seven months of the term and an initial term of 120 calendar months. <span class="tg tg-f">Filed</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q</a></p>
+        <p>The 10-Q also reports preferred stock that converts into common stock: 938 Series C shares into 1,111 common shares and 1,014 Series B shares into 15. The 10-Q also lists warrants outstanding at June 30, 2026 of 1,817,714 (1,815,784 January 2026 warrants, exercisable at $9.50 for five years from issue, and 1,930 May 2024 Series A warrants), 667,413 options and 314,561 unvested restricted stock units, against 7,310,008 shares outstanding. <span class="tg tg-f">Filed</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q</a></p>
+        <p>The CPRIT grant is up to $17.6M, of which about $15.9M had been received at June 30, 2026. It carries a matching-fund requirement (one dollar for every two dollars awarded), and revenue-sharing and royalty obligations on commercialization of rhenium (186 Re) obisbemeda until CPRIT receives 400% of the proceeds awarded. The contract &ldquo;will terminate on August 28, 2026&rdquo; unless ended earlier. CPRIT may require repayment of disbursed funds, with interest not above 5% a year, if CPRIT ends the contract for the company&rsquo;s default, the company ends it for convenience, or the company moves its principal place of business out of Texas; the grant receivable was $1.8M at June 30, 2026 against $0.3M at December 31, 2025. The 10-Q also describes a $3.0 million Department of Defense award over three years from September 1, 2024. <span class="tg tg-f">Filed</span> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">10-Q</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ 06 FILINGS (white): exactly the filings this page cites ============ -->
+<section id="filings" class="filings sec-white" aria-labelledby="fl-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Filings</span>
+      <h2 id="fl-h">The 13 filings this page cites</h2>
+      <p>Newest first. Other filings, including the other 8-Ks, the proxy statement and the Forms 4, are on <a class="inl" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0001095981&amp;type=&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">EDGAR</a>. The company&rsquo;s own investor site carries its news and presentations.</p>
+    </div>
+    <div class="table-scroll reveal">
+      <table class="fin stack filtable">
+        <caption>Filings cited on this page, from the SEC&rsquo;s EDGAR system</caption>
+        <thead><tr><th scope="col">Filed</th><th scope="col">Form</th><th scope="col">What it is</th><th scope="col">Open</th></tr></thead>
+        <tbody>
+          <tr><td class="d" data-label="Filed"><time datetime="2026-10-02">Oct 2, 2026</time></td><td class="f" data-label="Form">8-K</td><td data-label="What it is">Investor presentation as of September 30, 2026 (Items 8.01, 9.01)</td><td class="srcc" data-label="Open"><a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526411259/cnsy-20261002.htm" target="_blank" rel="noopener">Document</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526411259/0001193125-26-411259-index.htm" target="_blank" rel="noopener">Index</a></td></tr>
+          <tr><td class="d" data-label="Filed"><time datetime="2026-09-10">Sep 10, 2026</time></td><td class="f" data-label="Form">8-K</td><td data-label="What it is">Senior secured convertible note financing and royalty agreement (Items 1.01, 2.03, 3.02, 8.01, 9.01)</td><td class="srcc" data-label="Open"><a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526387267/d382364d8k.htm" target="_blank" rel="noopener">Document</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526387267/0001193125-26-387267-index.htm" target="_blank" rel="noopener">Index</a></td></tr>
+          <tr><td class="d" data-label="Filed"><time datetime="2026-08-14">Aug 14, 2026</time></td><td class="f" data-label="Form">10-Q</td><td data-label="What it is">Quarterly report for the quarter ended June 30, 2026</td><td class="srcc" data-label="Open"><a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">Document</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/0001193125-26-352444-index.htm" target="_blank" rel="noopener">Index</a></td></tr>
+          <tr><td class="d" data-label="Filed"><time datetime="2026-08-04">Aug 4, 2026</time></td><td class="f" data-label="Form">8-K</td><td data-label="What it is">Name change from Plus Therapeutics, Inc. to Cerenome, Inc., effective August 3, 2026, and Nasdaq symbol change to CNSY (Items 5.03, 9.01)</td><td class="srcc" data-label="Open"><a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526332939/pstv-20260803.htm" target="_blank" rel="noopener">Document</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526332939/0001193125-26-332939-index.htm" target="_blank" rel="noopener">Index</a></td></tr>
+          <tr><td class="d" data-label="Filed"><time datetime="2026-06-05">Jun 5, 2026</time></td><td class="f" data-label="Form">8-K</td><td data-label="What it is">At-the-market Equity Distribution Agreement with Canaccord Genuity (Items 1.01, 9.01)</td><td class="srcc" data-label="Open"><a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526259703/pstv-20260601.htm" target="_blank" rel="noopener">Document</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526259703/0001193125-26-259703-index.htm" target="_blank" rel="noopener">Index</a></td></tr>
+          <tr><td class="d" data-label="Filed"><time datetime="2026-05-15">May 15, 2026</time></td><td class="f" data-label="Form">10-Q</td><td data-label="What it is">Quarterly report for the quarter ended March 31, 2026</td><td class="srcc" data-label="Open"><a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526226978/pstv-20260331.htm" target="_blank" rel="noopener">Document</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526226978/0001193125-26-226978-index.htm" target="_blank" rel="noopener">Index</a></td></tr>
+          <tr><td class="d" data-label="Filed"><time datetime="2026-04-21">Apr 21, 2026</time></td><td class="f" data-label="Form">8-K</td><td data-label="What it is">Nasdaq notice that minimum bid price compliance was regained (Items 8.01, 9.01)</td><td class="srcc" data-label="Open"><a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526165205/pstv-20260420.htm" target="_blank" rel="noopener">Document</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526165205/0001193125-26-165205-index.htm" target="_blank" rel="noopener">Index</a></td></tr>
+          <tr><td class="d" data-label="Filed"><time datetime="2026-04-08">Apr 8, 2026</time></td><td class="f" data-label="Form">8-K</td><td data-label="What it is">Orphan Drug Designation for pediatric malignant gliomas (Items 8.01, 9.01)</td><td class="srcc" data-label="Open"><a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526146335/pstv-20260408.htm" target="_blank" rel="noopener">Document</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526146335/0001193125-26-146335-index.htm" target="_blank" rel="noopener">Index</a></td></tr>
+          <tr><td class="d" data-label="Filed"><time datetime="2026-04-02">Apr 2, 2026</time></td><td class="f" data-label="Form">8-K</td><td data-label="What it is">1-for-25 reverse stock split (Items 3.03, 5.03, 8.01, 9.01)</td><td class="srcc" data-label="Open"><a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526140267/pstv-20260401.htm" target="_blank" rel="noopener">Document</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526140267/0001193125-26-140267-index.htm" target="_blank" rel="noopener">Index</a></td></tr>
+          <tr><td class="d" data-label="Filed"><time datetime="2026-03-12">Mar 12, 2026</time></td><td class="f" data-label="Form">10-K</td><td data-label="What it is">Annual report for the year ended December 31, 2025</td><td class="srcc" data-label="Open"><a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526104258/pstv-20251231.htm" target="_blank" rel="noopener">Document</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526104258/0001193125-26-104258-index.htm" target="_blank" rel="noopener">Index</a></td></tr>
+          <tr><td class="d" data-label="Filed"><time datetime="2026-01-16">Jan 16, 2026</time></td><td class="f" data-label="Form">8-K</td><td data-label="What it is">Underwritten public offering of common stock and warrants (Items 1.01, 8.01, 9.01)</td><td class="srcc" data-label="Open"><a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526015346/d65677d8k.htm" target="_blank" rel="noopener">Document</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526015346/0001193125-26-015346-index.htm" target="_blank" rel="noopener">Index</a></td></tr>
+          <tr><td class="d" data-label="Filed"><time datetime="2025-11-17">Nov 17, 2025</time></td><td class="f" data-label="Form">8-K</td><td data-label="What it is">Nasdaq extension for the minimum bid price requirement (Items 7.01, 8.01, 9.01)</td><td class="srcc" data-label="Open"><a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312525283935/d55484d8k.htm" target="_blank" rel="noopener">Document</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312525283935/0001193125-25-283935-index.htm" target="_blank" rel="noopener">Index</a></td></tr>
+          <tr><td class="d" data-label="Filed"><time datetime="2025-10-30">Oct 30, 2025</time></td><td class="f" data-label="Form">10-Q</td><td data-label="What it is">Quarterly report for the quarter ended September 30, 2025</td><td class="srcc" data-label="Open"><a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312525258596/pstv-20250930.htm" target="_blank" rel="noopener">Document</a> <a class="src" href="https://www.sec.gov/Archives/edgar/data/1095981/000119312525258596/0001193125-25-258596-index.htm" target="_blank" rel="noopener">Index</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 CONTACT IR (indigo, the company's artwork): contact + alerts, merged ============ -->
+<section id="contact" class="contact sec-dark" aria-labelledby="ct-h">
+  <div class="wrap contact-wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Contact IR</span>
+      <h2 id="ct-h">Where the official record lives</h2>
+      <p>This page is an independent concept. Questions about the company belong with the sources below.</p>
+    </div>
+    <div class="contact-list">
+      <div class="contact-col reveal">
+        <h3>Official investor relations</h3>
+        <p>The company&rsquo;s own investor site carries its news, filings and presentations. This concept page has no sign-up form.</p>
+        <a class="btn btn-primary-light" href="https://ir.cerenome.com/" target="_blank" rel="noopener">ir.cerenome.com <span class="arw" aria-hidden="true">&nearr;</span></a>
+      </div>
+      <div class="contact-col reveal" style="--d:.06s">
+        <h3>The company</h3>
+        <p>Cerenome, Inc., 6420 Levit Green Boulevard, Houston, Texas 77021. Telephone +1.210.974.6900, as on the company&rsquo;s website.</p>
+        <a class="btn btn-ghost-light" href="https://cerenome.com/" target="_blank" rel="noopener">cerenome.com <span class="arw" aria-hidden="true">&nearr;</span></a>
+      </div>
+      <div class="contact-col reveal" style="--d:.12s">
+        <h3>SEC filings</h3>
+        <p>Every filing, as the company filed it, including anything after the filings listed here.</p>
+        <a class="btn btn-ghost-light" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0001095981&amp;type=&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">EDGAR, CIK 0001095981 <span class="arw" aria-hidden="true">&nearr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+<div class="foot-brand"><img src="img/logo-white.svg" alt="Cerenome" width="170" height="35"></div>
+<ul class="footer-links">
+  <li><a href="https://ir.cerenome.com/" target="_blank" rel="noopener">Official investor relations</a></li>
+  <li><a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0001095981&amp;type=&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC EDGAR filings, CIK 0001095981</a></li>
+  <li><a href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526352444/pstv-20260630.htm" target="_blank" rel="noopener">Form 10-Q, June 30, 2026</a></li>
+  <li><a href="https://www.sec.gov/Archives/edgar/data/1095981/000119312526104258/pstv-20251231.htm" target="_blank" rel="noopener">Form 10-K, December 31, 2025</a></li>
+</ul>
+<p class="method">How this page was made: figures come from the company&rsquo;s Form 10-K for the year ended December 31, 2025 (filed March 12, 2026) and its Form 10-Q for the quarter ended June 30, 2026 (filed August 14, 2026); the Forms 10-Q for September 30, 2025 and March 31, 2026 are cited for their going-concern statements, and the Forms 8-K listed above supply the financing, listing and name-change facts. Statements are labelled filed, company statement, computed or company site. The filings before August 2026 were made under the former name Plus Therapeutics, Inc. (CIK 0001095981, the same registrant). Amounts are US dollars as filed. Statements on cerenome.com, including the stage labels and the two artworks, are labelled company site; they were read on October 19, 2026 and may since have changed. This page shows no market quote and uses no photograph of a person. Nothing here is a forecast, an offer, or advice about the company&rsquo;s securities.</p>
+    <p class="fls"><b>About this page:</b> This is an independent design concept and is not the official Cerenome investor relations website. It is not affiliated with, endorsed by, or maintained by Cerenome, Inc. Figures were assembled from public materials at a point in time and may be outdated; verify every figure against the company's official SEC filings. For official information, visit <a href="https://ir.cerenome.com/">ir.cerenome.com</a>.</p>
+    <p class="fls"><b>Forward-Looking Statements:</b> This website contains forward-looking statements within the meaning of the Private Securities Litigation Reform Act of 1995, including statements regarding the clinical development of REYOBIQ (rhenium (186 Re) obisbemeda), including the ReSPECT-GBM, ReSPECT-LM and pediatric brain cancer studies, their timing, data and results and any later regulatory review; the commercialization of the CNSide test and payer coverage and reimbursement for it; the company's cash, its ability to raise additional capital and to continue as a going concern, and the dilution, security interests and royalty obligations that come with its financings, including the senior secured convertible notes agreed in September 2026; continued compliance with Nasdaq listing requirements; the end of the CPRIT grant on August 28, 2026; the development of its data and artificial intelligence capabilities; its intellectual property and manufacturing arrangements; and the effects of its change of name. These statements involve known and unknown risks, uncertainties, and other factors that may cause actual results to differ materially from those expressed or implied. We undertake no obligation to update any forward-looking statements except as required by law. See the company's SEC filings, including its most recent 10-K and 10-Q, for a full discussion of risk factors.</p>
+    <p class="market-note">Market data, where shown, is delayed at least 15 minutes and provided for this concept only. Real-time quotes and official figures are available through the company's investor relations site and SEC filings. This concept page shows no live or delayed share quote. The share figures stated here include the 7,589,625 shares outstanding on the cover of the June 30, 2026 Form 10-Q (as of Aug 5, 2026), the share counts in its balance sheet and equity note, the share counts and prices of the financings and the reverse split described under funding, and the conversion terms of the September 2026 notes.</p>
+  </div>
+</footer>
+
+<script>
+/* mediaconsole motion: inlined by scaffold.mjs at the end of body, identical on every page; never edit it.
+   Sets html.js, runs the ONE reveal observer (fires the mc:reveal hook), scroll-spy, hamburger aria, and the
+   #hero-motif .paused toggle (off-screen, hidden tab, [data-motif-toggle]). Null-guarded: a failure reveals everything. */
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('js');
+  var reduce=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var hasIO='IntersectionObserver' in window;
+  function fire(el,name,detail){
+    var ev;
+    try{ev=new CustomEvent(name,{bubbles:true,detail:detail})}
+    catch(x){ev=d.createEvent('CustomEvent');ev.initCustomEvent(name,true,false,detail)}
+    el.dispatchEvent(ev);
+  }
+  /* mc:reveal fires ONCE per .reveal element, bubbling, as .in lands; detail.reduced is true under reduced motion.
+     Components hook here (counters.js) instead of adding a second observer. */
+  function show(el){
+    if(el.classList.contains('in'))return;
+    el.classList.add('in');
+    fire(el,'mc:reveal',{reduced:reduce});
+  }
+  try{
+    var els=[].slice.call(d.querySelectorAll('.reveal'));
+    if(reduce||!hasIO){els.forEach(show)}
+    else{
+      var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){io.unobserve(e.target);show(e.target)}})},{threshold:.12});
+      els.forEach(function(el){io.observe(el)});
+    }
+  }catch(err){root.classList.remove('js');[].forEach.call(d.querySelectorAll('.reveal'),function(el){el.classList.add('in')})}
+  try{
+    var burger=d.querySelector('.nav-burger'),links=d.getElementById('nav-links'),nav=d.querySelector('.site-nav');
+    if(burger&&links){
+      var setOpen=function(o){links.classList.toggle('open',o);burger.setAttribute('aria-expanded',o?'true':'false')};
+      burger.addEventListener('click',function(){setOpen(!links.classList.contains('open'))});
+      links.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('a'))setOpen(false)});
+      d.addEventListener('keydown',function(e){if((e.key==='Escape'||e.key==='Esc')&&links.classList.contains('open')){setOpen(false);burger.focus()}});
+    }
+    if(nav){var onScroll=function(){nav.classList.toggle('scrolled',window.scrollY>8)};window.addEventListener('scroll',onScroll,{passive:true});onScroll()}
+  }catch(err){}
+  try{
+    var na=[].slice.call(d.querySelectorAll('.nav-links a[href^="#"]:not(.btn)'));
+    if(na.length&&hasIO){
+      var so=new IntersectionObserver(function(en){en.forEach(function(e){
+        if(!e.isIntersecting)return;var id='#'+e.target.id;
+        na.forEach(function(a){var on=a.getAttribute('href')===id;a.classList.toggle('active',on);if(on)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')});
+      })},{rootMargin:'-40% 0px -55% 0px'});
+      na.forEach(function(a){var t=d.getElementById(a.getAttribute('href').slice(1));if(t)so.observe(t)});
+    }
+  }catch(err){}
+  /* hero motif pause: toggles .paused on #hero-motif (off-screen, hidden tab, or the user's [data-motif-toggle]).
+     The class is the whole contract: substrate CSS pauses every CSS animation inside it; JS motifs watch it (wave.js). */
+  try{
+    var motif=d.getElementById('hero-motif');
+    if(motif&&!reduce){
+      var hero=d.getElementById('hero')||motif,hv=true,user=false,tg=[].slice.call(d.querySelectorAll('[data-motif-toggle]'));
+      var sm=function(){var p=user||!hv||d.hidden;motif.classList.toggle('paused',p)};
+      if(hasIO)new IntersectionObserver(function(en){en.forEach(function(e){hv=e.isIntersecting});sm()},{threshold:0}).observe(hero);
+      d.addEventListener('visibilitychange',sm);
+      tg.forEach(function(b){
+        b.setAttribute('aria-pressed','false');
+        b.addEventListener('click',function(){user=!user;tg.forEach(function(t){t.setAttribute('aria-pressed',user?'true':'false')});sm()});
+      });
+    }
+  }catch(err){}
+})();
+</script>
+</body>
+</html>
